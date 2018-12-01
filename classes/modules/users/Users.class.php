@@ -30,6 +30,11 @@ class PluginAdmin_ModuleUsers extends Module
     const BAN_RESTRICTION_TYPE_FULL = 1;
     const BAN_RESTRICTION_TYPE_READ_ONLY = 2;
 
+    /**
+     * Статусы жалобы на пользователя
+     */
+    const COMPLAINT_STATE_NEW = 1;
+    const COMPLAINT_STATE_READ = 2;
     /*
      * типы правила бана
      */
@@ -1492,7 +1497,7 @@ class PluginAdmin_ModuleUsers extends Module
      */
     public function GetUsersComplaintsCountNew()
     {
-        return $this->GetUsersComplaintsCountByFilter(array('state' => ModuleUser::COMPLAINT_STATE_NEW));
+        return $this->GetUsersComplaintsCountByFilter(array('state' => self::COMPLAINT_STATE_NEW));
     }
 
 

@@ -669,9 +669,9 @@ class PluginAdmin_ModuleStats extends Module
                 return array(
                     'table'                  => Config::Get('db.table.user'),
                     'conditions'             => array(
-                        'user_activate' => 1,
+                        'activate' => 1,
                     ),
-                    'period_row_name'        => 'user_date_register',
+                    'period_row_name'        => 'date_create',
                     /*
                      * для отображения линейки голосов за объект
                      */

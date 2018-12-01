@@ -17,10 +17,7 @@
             {if $showFilterType}
                 <select name="filter[graph_type]" class="width-150">
                     {foreach array(
-                        PluginAdmin_ModuleStats::DATA_TYPE_REGISTRATIONS,
-                        PluginAdmin_ModuleStats::DATA_TYPE_TOPICS,
-                        PluginAdmin_ModuleStats::DATA_TYPE_COMMENTS,
-                        PluginAdmin_ModuleStats::DATA_TYPE_VOTINGS
+                        PluginAdmin_ModuleStats::DATA_TYPE_REGISTRATIONS
                     ) as $sGraphType}
                         <option value="{$sGraphType}" {if $sCurrentGraphType==$sGraphType}selected="selected"{/if}>
                             {$aLang.plugin.admin.graph.graph_type[$sGraphType]}

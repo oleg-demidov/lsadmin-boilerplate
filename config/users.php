@@ -69,18 +69,18 @@ $config['users']['search_allowed_types'] = array(
  * Корректные значения (поля) для сортировок пользователей
  */
 $config['users']['correct_sorting_order'] = array(
-    'u.user_id',
-    'u.user_login',
-    'u.user_mail',
-    'u.user_date_register',
-    'u.user_ip_register',
-    'u.user_rating',
-    'u.user_profile_name',
-    'u.user_profile_birthday',
-    's.session_ip_create',
-    's.session_ip_last',
-    's.session_date_create',
-    's.session_date_last',
+    'u.id',
+    'u.login',
+    'u.mail',
+    'u.date_create',
+    'u.ip_create',
+    'u.rating',
+    'u.profile_name',
+    'u.profile_birthday',
+    's.ip_create',
+    's.ip_last',
+    's.date_create',
+    's.date_last',
 );
 
 /*

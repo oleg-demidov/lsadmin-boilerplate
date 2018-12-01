@@ -53,12 +53,12 @@ class PluginAdmin_ActionAdmin_EventDashboard extends Event
          * получить прирост, линейку голосов и рейтингов топиков, комментариев, блогов и пользователей за указанный период (период по-умолчанию)
          */
         $this->Viewer_Assign('aDataGrowth', array(
-            PluginAdmin_ModuleStats::DATA_TYPE_TOPICS        => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_TOPICS,
-                $sItemsAddedPeriod),
-            PluginAdmin_ModuleStats::DATA_TYPE_COMMENTS      => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_COMMENTS,
-                $sItemsAddedPeriod),
-            PluginAdmin_ModuleStats::DATA_TYPE_BLOGS         => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_BLOGS,
-                $sItemsAddedPeriod),
+//            PluginAdmin_ModuleStats::DATA_TYPE_TOPICS        => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_TOPICS,
+//                $sItemsAddedPeriod),
+//            PluginAdmin_ModuleStats::DATA_TYPE_COMMENTS      => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_COMMENTS,
+//                $sItemsAddedPeriod),
+//            PluginAdmin_ModuleStats::DATA_TYPE_BLOGS         => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_BLOGS,
+//                $sItemsAddedPeriod),
             PluginAdmin_ModuleStats::DATA_TYPE_REGISTRATIONS => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_REGISTRATIONS,
                 $sItemsAddedPeriod),
         ));
@@ -74,38 +74,14 @@ class PluginAdmin_ActionAdmin_EventDashboard extends Event
         ));
 
         /*
-         * получить все события
-         */
-        $this->GetStreamAll();
-        /*
-         * получить список всех событий для отображения фильтра
-         */
-        $this->Viewer_Assign('aEventTypes', array_keys($this->Stream_getEventTypes()));
-
-        /*
          * получить базовую статистику
          */
         $this->Viewer_Assign('aStats', $this->User_GetStatUsers());
         /*
-         * количество топиков всего
-         */
-        $this->Viewer_Assign('iTotalTopicsCount', $this->Topic_GetCountTopicsByFilter(array('published' => 1)));
-        /*
-         * количество блогов всего
-         */
-        $this->Viewer_Assign('iTotalBlogsCount', $this->PluginAdmin_Blogs_GetCountBlogs());
-        /*
-         * количество комментариев всего
-         */
-        $this->Viewer_Assign('iTotalCommentsCount', $this->PluginAdmin_Comments_GetCountCommentsTotal('topic'));
-        /*
          * получить информацию по обновлениям плагинов
          */
         $this->PluginAdmin_Catalog_GetUpdatesInfo();
-        /*
-         * получить информацию о новых жалобах на пользователей
-         */
-        $this->Viewer_Assign('iUsersComplaintsCountNew', $this->PluginAdmin_Users_GetUsersComplaintsCountNew());
+        
     }
 
 
@@ -125,12 +101,6 @@ class PluginAdmin_ActionAdmin_EventDashboard extends Event
          * получить прирост, линейку голосов и рейтингов топиков, комментариев, блогов и пользователей за указанный период
          */
         $oViewer->Assign('aDataGrowth', array(
-            PluginAdmin_ModuleStats::DATA_TYPE_TOPICS        => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_TOPICS,
-                $sItemsAddedPeriod),
-            PluginAdmin_ModuleStats::DATA_TYPE_COMMENTS      => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_COMMENTS,
-                $sItemsAddedPeriod),
-            PluginAdmin_ModuleStats::DATA_TYPE_BLOGS         => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_BLOGS,
-                $sItemsAddedPeriod),
             PluginAdmin_ModuleStats::DATA_TYPE_REGISTRATIONS => $this->PluginAdmin_Stats_GetGrowthAndVotingsByTypeAndPeriod(PluginAdmin_ModuleStats::DATA_TYPE_REGISTRATIONS,
                 $sItemsAddedPeriod),
         ));

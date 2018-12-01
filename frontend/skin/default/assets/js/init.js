@@ -241,11 +241,7 @@ jQuery(document).ready(function ($) {
      */
     $('.js-menu').lsAdminMenu();
 
-    /**
-     * Activity
-     */
-    $('.js-dashboard-activity').lsActivity({ urls: { more: aRouter.stream + 'get_more_all' } });
-
+    
     /**
      * Механизм заметок для пользователей
      */

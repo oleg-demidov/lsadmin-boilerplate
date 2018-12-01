@@ -30,7 +30,6 @@
 	 * Блоки
 	 *}
 	<div class="p-dashboard-block-group ls-clearfix">
-		{component 'admin:p-dashboard.block-activity' events=$aStreamEvents count=$iStreamCount}
 		{component 'admin:p-dashboard.block-stats'}
 	</div>
 

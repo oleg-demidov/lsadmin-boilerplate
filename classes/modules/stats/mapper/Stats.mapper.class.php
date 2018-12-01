@@ -121,7 +121,7 @@ class PluginAdmin_ModuleStats_MapperStats extends Mapper
 				WHERE
 					' . $sWhere . '
 					AND
-					`' . $aFilter['target_type'] . '_rating` > 0
+					`rating` > 0
 					AND
 					`' . $aFilter['period_row_name'] . '` ' . $aPeriod['now_period'] . '
 			) as positive,
@@ -132,7 +132,7 @@ class PluginAdmin_ModuleStats_MapperStats extends Mapper
 				WHERE
 					' . $sWhere . '
 					AND
-					`' . $aFilter['target_type'] . '_rating` < 0
+					`rating` < 0
 					AND
 					`' . $aFilter['period_row_name'] . '` ' . $aPeriod['now_period'] . '
 			) as negative,
@@ -143,7 +143,7 @@ class PluginAdmin_ModuleStats_MapperStats extends Mapper
 				WHERE
 					' . $sWhere . '
 					AND
-					`' . $aFilter['target_type'] . '_rating` = 0
+					`rating` = 0
 					AND
 					`' . $aFilter['period_row_name'] . '` ' . $aPeriod['now_period'] . '
 			) as neutral

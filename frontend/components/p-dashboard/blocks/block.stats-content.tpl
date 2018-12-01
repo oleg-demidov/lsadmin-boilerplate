@@ -4,7 +4,7 @@
 
 <table class="ls-table">
 	<tbody>
-		{foreach [ 'topics', 'comments', 'blogs', 'registrations' ] as $type}
+		{foreach [  'registrations' ] as $type}
 			<tr>
 				<td>
 					{$aLang.plugin.admin.index["new_$type"]}

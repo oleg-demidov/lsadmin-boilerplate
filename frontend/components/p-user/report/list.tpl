@@ -62,7 +62,7 @@
 
         <tbody>
             {foreach $reports as $report}
-                <tr class="{if $report@iteration % 2 == 0}second{/if} {if $report->getState()==ModuleUser::COMPLAINT_STATE_NEW}new{/if}">
+                <tr class="{if $report@iteration % 2 == 0}second{/if} {if $report->getState()==ModuleUsers::COMPLAINT_STATE_NEW}new{/if}">
                     <td>
                         {$report->getId()}
                     </td>

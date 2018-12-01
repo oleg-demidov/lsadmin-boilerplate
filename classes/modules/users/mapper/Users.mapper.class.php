@@ -475,20 +475,20 @@ class PluginAdmin_ModuleUsers_MapperUsers extends Mapper
     public function GetUsersRegistrationStats($aPeriods, $sMySQLDateFormat)
     {
         $sSql = 'SELECT
-				DATE_FORMAT(`user_date_register`, "' . $sMySQLDateFormat . '") as date,
+				DATE_FORMAT(`date_create`, "' . $sMySQLDateFormat . '") as date,
 				COUNT(*) as count
 			FROM
 				`' . Config::Get('db.table.user') . '`
 			WHERE
-				`user_activate` = 1
+				`activate` = 1
 				AND
-				`user_date_register` >= ?
+				`date_create` >= ?
 				AND
-				`user_date_register` <= ?
+				`date_create` <= ?
 				AND
-				`user_id` NOT IN (
+				`id` NOT IN (
 					SELECT
-						`user_id`
+						`id`
 					FROM
 						`' . Config::Get('db.table.users_ban') . '`
 					WHERE
@@ -526,7 +526,7 @@ class PluginAdmin_ModuleUsers_MapperUsers extends Mapper
 				WHERE
 					`user_activate` = 1
 					AND
-					`user_rating` >= 0
+					`rating` >= 0
 			) as good_users,
 			(
 				SELECT COUNT(*)
@@ -535,7 +535,7 @@ class PluginAdmin_ModuleUsers_MapperUsers extends Mapper
 				WHERE
 					`user_activate` = 1
 					AND
-					`user_rating` < 0
+					`rating` < 0
 			) as bad_users
 		';
         return (array)$this->oDb->selectRow($sSql);

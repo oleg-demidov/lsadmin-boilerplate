@@ -14,18 +14,6 @@
         text => {lang 'plugin.admin.actionbar.registrations' count=$aUserGrowth.now_items plural=true},
         count => $aUserGrowth.now_items,
         growth => $aUserGrowth.growth
-    ],
-    [
-        text => {lang 'plugin.admin.actionbar.topics' count=$iTotalTopicsCount plural=true},
-        count => $iTotalTopicsCount
-    ],
-    [
-        text => {lang 'plugin.admin.actionbar.blogs' count=$iTotalBlogsCount plural=true},
-        count => $iTotalBlogsCount
-    ],
-    [
-        text => {lang 'plugin.admin.actionbar.comments' count=$iTotalCommentsCount plural=true},
-        count => $iTotalCommentsCount
     ]
 ]}
 
