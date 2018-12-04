@@ -353,7 +353,7 @@ return array(
             'id'              => 'id',
             'mail'            => 'почте',
             'password'        => 'хешу пароля',
-            'ip_register'     => 'IP регистрации',
+            'ip_create'     => 'IP регистрации',
             'activate'        => 'активирован ли',
             'activate_key'    => 'ключу активации',
             'profile_sex'     => 'полу',

@@ -52,7 +52,7 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
      */
     public function EventAdminsList()
     {
-        $this->GetUsersListByRules(Router::GetPath('admin/users/admins'), array('admins_only' => true));
+        $this->GetUsersListByRules(Router::GetPath('admin/users/admins'), array('is_admin' => true));
     }
 
 
@@ -80,12 +80,11 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
         /*
          * получить правила (фильтр для поиска)
          */
-        $aSearchRules = $aValidatedSearchRules['filter_queries'];
+        $aSearchRules = $aValidatedSearchRules['filter_queries'];        
         /*
          * получить правила только с оригинальными тектовыми запросами
          */
         $aSearchRulesWithOriginalQueries = $aValidatedSearchRules['filter_queries_with_original_values'];
-
         /*
          * получение пользователей
          */
@@ -460,7 +459,12 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
                     /*
                      * искать в любой части строки
                      */
-                    $sQuery = '%' . $sQuery . '%';
+                    if(!isset($aQueries["#where"])){
+                        $aQueries["#where"] = [];
+                    }
+                    
+                    $aQueries["#where"] = [($sField." LIKE ?") => ['%'.$sQuery.'%']];
+                    continue;
                 }
                 /*
                  * добавить новую поисковую пару "поле=>запрос" для фильтра

@@ -47,16 +47,10 @@ $config['users']['search_allowed_types'] = array(
     'id'              => array('search_as_part_of_string' => false),
     'mail'            => array('search_as_part_of_string' => true),
     'password'        => array('search_as_part_of_string' => false),
-    'ip_register'     => array('search_as_part_of_string' => true),
+    'ip_create'     => array('search_as_part_of_string' => true),
     'activate'        => array('search_as_part_of_string' => false, 'restricted_values' => array('1', '0')),
     'activate_key'    => array('search_as_part_of_string' => false),
-    'profile_sex'     => array(
-        'search_as_part_of_string' => false,
-        'restricted_values'        => array('man', 'woman', 'other')
-    ),
     'login'           => array('search_as_part_of_string' => true),
-    'profile_name'    => array('search_as_part_of_string' => true, 'allow_empty_search' => true),
-    'session_ip_last' => array('search_as_part_of_string' => true),
 );
 
 /*
@@ -86,7 +80,7 @@ $config['users']['correct_sorting_order'] = array(
 /*
  * Сортировка пользователей по-умолчанию (если указанная сортировка некорректна или не разрешена)
  */
-$config['users']['default_sorting_order'] = 'u.user_id';
+$config['users']['default_sorting_order'] = 'u.id';
 
 /*
  *

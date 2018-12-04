@@ -534,13 +534,13 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
         )// /AddSection
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Пользователи')->SetName('users')->SetUrl('users')
-                ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Статистика')->SetUrl('stats'))
+                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Статистика')->SetUrl('stats'))
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Весь список')->SetUrl('list'))
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Бан-листы')->SetUrl('bans'))
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Администраторы')->SetUrl('admins'))
-                ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Жалобы')->SetUrl('complaints'))
+                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Жалобы')->SetUrl('complaints'))
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Управление правами')->SetUrl('rbac'))
-                ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Виды контактов')->SetUrl('contact-fields'))
+                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Виды контактов')->SetUrl('contact-fields'))
         )// /AddSection
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Плагины')->SetName('plugins')->SetUrl('plugins')

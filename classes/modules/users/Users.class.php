@@ -107,16 +107,16 @@ class PluginAdmin_ModuleUsers extends Module
         $aAllowData = null
     ) {
         if (is_null($aAllowData)) {
-            $aAllowData = array('session');
+            $aFilter['#with'] = array('session');
+        }else{
+            $aFilter['#with'] = $aAllowData;
         }
-        $sOrder = $this->GetCorrectSortingOrder(
-            $aOrder,
-            Config::Get('plugin.admin.users.correct_sorting_order'),
-            Config::Get('plugin.admin.users.default_sorting_order')
-        );
-        $mData = $this->oMapper->GetUsersByFilter($aFilter, $sOrder, $iPage, $iPerPage);
+        
+        $aFilter['#page'] = [$iPage, $iPerPage];
+        
+        $mData = $this->User_GetUserItemsByFilter($aFilter);
 
-        $mData['collection'] = $this->User_GetUsersAdditionalData($mData['collection'], $aAllowData);
+        //$mData['collection'] = $this->User_GetUsersAdditionalData($mData['collection'], $aAllowData);
         return $mData;
     }
 
