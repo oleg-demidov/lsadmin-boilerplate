@@ -1725,6 +1725,63 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
 
     public function EventImport() {
         $this->SetTemplateAction('users/import');
+       
+    }
+    
+    public function EventImportSettings() {
+        
+        $this->SetTemplateAction('users/import_settings');
+        
+        $sName = 'import/users.xls';
+        
+        if(($sError = $this->PluginAdmin_Users_UploadFile($_FILES['file'], 'import/users.xls')) !== true){
+            $this->Message_AddError( $sError, $this->Lang_Get('common.error.error'));
+            return $this->EventImport();
+        }
+        
+        $sName = Config::Get('path.tmp.server') . '/'. $sName;
+        
+        try{
+            $objPHPExcel = PHPExcel_IOFactory::load($sName);
+        
+            $oSheet = $objPHPExcel->getActiveSheet();
+            
+        }catch(PHPExcel_Reader_Exception $e){
+            $this->Message_AddError( $e->getMessage(), $this->Lang_Get('common.error.error'));
+            return $this->EventImport();
+        }
+        
+        $aRowHeader = $this->getFirstRow($oSheet);
+        
+        $this->Viewer_Assign('aRowHeader', $aRowHeader);
+        $this->Viewer_Assign('aFields', Engine::GetEntity("User_User")->_getFields());
+    }
+    
+    public function EventImportProcess() {
+        $this->SetTemplateAction('users/import_process');
+        
+        $sName = Config::Get('path.tmp.server') . '/import/users.xls';
+        
+        $this->Viewer_AssignJs('importFile', $sName);
+        $this->Viewer_AssignJs('replace', getRequest('replace'));
+        
+    }
+    
+    public function getFirstRow(PHPExcel_Worksheet $oSheet) {
+        $aRow = [];
+        
+        if(!$oSheet->getRowIterator()->valid()){
+            return $aRow;
+        }
+        
+        $oCellIterator = $oSheet->getRowIterator()->current()->getCellIterator();
+        
+        while($oCellIterator->valid()){
+            $aRow[] = $oCellIterator->current()->getValue();
+            $oCellIterator->next();
+        }
+        
+        return $aRow;
     }
 
     /**

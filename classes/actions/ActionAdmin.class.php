@@ -302,6 +302,9 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
          */
         
         $this->AddEventPreg('#^users$#iu', '#^import$#iu',    'Users::EventImport');
+        $this->AddEventPreg('#^users$#iu', '#^import_settings$#iu',    'Users::EventImportSettings');
+        $this->AddEventPreg('#^users$#iu', '#^import_process$#iu',    'Users::EventImportProcess');
+        
         /*
          *
          * --- Баны ---

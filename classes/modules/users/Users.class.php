@@ -1565,6 +1565,30 @@ class PluginAdmin_ModuleUsers extends Module
         $this->PluginAdmin_Settings_SaveConfigByKey('admin', $aData);
     }
 
+    public function UploadFile($aFile, $sName) {
+        
+        if ($aFile['error'] != UPLOAD_ERR_OK) {
+            switch ($aFile['error']) {
+                case UPLOAD_ERR_INI_SIZE:
+                case UPLOAD_ERR_FORM_SIZE:
+                    return $this->Lang_Get('media.error.too_large', array('size' => @func_ini_return_bytes(ini_get('upload_max_filesize')) / 1024));
+                default:
+                    return $this->Lang_Get('media.error.upload');
+            }
+        }
+        
+        $sName = Config::Get('path.tmp.server') . '/'. $sName;
+        
+        $sFileTmp =  dirname($sName);
+        if (!is_dir($sFileTmp)) {
+            @mkdir($sFileTmp, 0777, true);
+        }
+
+        if (!move_uploaded_file($aFile['tmp_name'], $sName)) {
+            return $this->Lang_Get('media.error.upload');
+        }
+        return true;
+    }
 
 }
 

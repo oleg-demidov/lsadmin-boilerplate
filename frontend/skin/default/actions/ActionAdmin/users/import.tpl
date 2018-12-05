@@ -9,5 +9,13 @@
 {/block}
 
 {block 'layout_content'}
-	Импорт
+    <hr>
+    <h2>Загрузите Exel файл</h2>
+    {component "admin:p-form"
+        action = {router page="admin/users/import_settings"}
+        attributes = [enctype => "multipart/form-data"]
+        submit = ['text' => $aLang.common.send]
+        form=[
+            [  field => 'file', label => $aLang.admin.users.import.field.file.label, name => 'file' ]
+    ]}
 {/block}
