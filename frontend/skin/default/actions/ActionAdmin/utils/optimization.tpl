@@ -46,7 +46,7 @@
     {**
 	 * Восстановление данных
 	 *}
-    {component 'admin:p-optimization' template='section'
+    {*component 'admin:p-optimization' template='section'
         title=$aLang.plugin.admin.utils.optimization.restore.title
         desc=$aLang.plugin.admin.utils.optimization.restore.info
         actions=[
@@ -66,14 +66,14 @@
                 url => "{router page='admin/utils/optimization/recreate-previews'}?security_ls_key={$LIVESTREET_SECURITY_KEY}",
                 text => $aLang.plugin.admin.utils.optimization.recreate_previews
             ]
-        ]}
+        ]*}
 
     {hook run='admin_utils_optimization_restore'}
 
 	{**
 	 * Проверка таблиц БД
 	 *}
-    {component 'admin:p-optimization' template='section'
+    {*component 'admin:p-optimization' template='section'
         title=$aLang.plugin.admin.utils.optimization.tables.title
         desc=$aLang.plugin.admin.utils.optimization.tables.info
         actions=[
@@ -93,7 +93,7 @@
                 url => "{router page='admin/utils/optimization/cleanfavourites'}?security_ls_key={$LIVESTREET_SECURITY_KEY}",
                 text => $aLang.plugin.admin.utils.optimization.tables.clean_favourites
             ]
-        ]}
+        ]*}
 
 	{hook run='admin_utils_optimization_tables_item'}
 

@@ -1718,7 +1718,14 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
         $this->Message_AddNotice('Удаление прошло успешно', $this->Lang_Get('common.attention'), true);
         Router::LocationAction("admin/users/contact-fields");
     }
+    
+    /*
+     * Импорт
+     */
 
+    public function EventImport() {
+        $this->SetTemplateAction('users/import');
+    }
 
     /**
      * Проверка поля пользователя на корректность из реквеста

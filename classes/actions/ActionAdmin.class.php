@@ -298,6 +298,11 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
             'Users::EventContactFieldsRemove');
 
         /*
+         * Импорт
+         */
+        
+        $this->AddEventPreg('#^users$#iu', '#^import$#iu',    'Users::EventImport');
+        /*
          *
          * --- Баны ---
          *
@@ -540,22 +545,22 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Администраторы')->SetUrl('admins'))
                 //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Жалобы')->SetUrl('complaints'))
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Управление правами')->SetUrl('rbac'))
-                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Виды контактов')->SetUrl('contact-fields'))
+                ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Импорт')->SetUrl('import')->SetColor('#f00'))
         )// /AddSection
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Плагины')->SetName('plugins')->SetUrl('plugins')
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Список плагинов')->SetUrl('list'))
-                ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Установить')->SetUrl('install')->SetColor('#f00'))
+                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Установить')->SetUrl('install')->SetColor('#f00'))
         )// /AddSection
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Шаблоны')->SetName('skins')->SetUrl('skins')
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Список шаблонов')->SetUrl('list'))
-                ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Установить')->SetUrl('install')->SetColor('#f00'))
+                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Установить')->SetUrl('install')->SetColor('#f00'))
         )// /AddSection
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Настройки')->SetName('settings')->SetUrl('settings')->setIcon('wrench')
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Конфигурация сайта')->SetUrl('config/main'))
-                ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Типы топиков')->SetUrl('topic-type'))
+                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Типы топиков')->SetUrl('topic-type'))
         )// /AddSection
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Утилиты')->SetName('utils')->SetUrl('utils')->setIcon('gears')
