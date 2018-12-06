@@ -1762,8 +1762,56 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
         
         $sName = Config::Get('path.tmp.server') . '/import/users.xls';
         
-        $this->Viewer_AssignJs('importFile', $sName);
-        $this->Viewer_AssignJs('replace', getRequest('replace'));
+        $this->Viewer_AssignJs('importData', [
+            'importFile' => $sName,
+            'replaceKeys' => getRequest('replace'),
+            'activate' => getRequest('activate'),
+            'whenDublicate' => getRequest('when_dublicate')
+        ]);
+    }
+    
+    public function EventAjaxImportProgress() {
+        $this->Viewer_SetResponseAjax('json');
+        $sFile = getRequest('importFile');
+        $aReplaceKeys = getRequest('replaceKeys');
+        
+      
+        $sBufferFile = Config::Get('path.root.server') . Config::Get('path.uploads.base'). '/import/log';
+        
+        $sFileTmp =  dirname($sBufferFile);
+        if (!is_dir($sFileTmp)) {
+            @mkdir($sFileTmp, 0777, true);
+        }
+        
+        $aBuffer = [
+            'id' => 0,
+            'progress' => 0, 
+            'mess' => 'Открытие файла', 
+            'log' => 'Open file: '.$sFile
+        ];        
+        file_put_contents($sBufferFile, json_encode($aBuffer));
+        
+        try{
+            $objPHPExcel = PHPExcel_IOFactory::load($sFile);
+        
+            $oSheet = $objPHPExcel->getActiveSheet();
+            
+        }catch(PHPExcel_Reader_Exception $e){
+            $aBuffer['id']++;
+            $aBuffer['mess'] = "Ошибка чтения файла";
+            $aBuffer['status'] = "stop";
+            $aBuffer['log'] = $e->getMessage();
+            file_put_contents($sBufferFile, json_encode($aBuffer));
+            return false;
+        }
+        
+        $aBuffer['status'] = "Чтение";
+        $aBuffer['progress'] = 1;
+        file_put_contents($sBufferFile, json_encode($aBuffer));
+        
+        sleep(5);
+        file_put_contents($sBufferFile, json_encode([progress => 9, status => 'stop']));
+        return false;        
         
     }
     

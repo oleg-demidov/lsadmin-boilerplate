@@ -10,7 +10,6 @@
 
 {block 'layout_content'}
     <hr>
-    <h2>Процесс</h2>
-    
+    {component "admin:import.ajax-progress" }
     
 {/block}

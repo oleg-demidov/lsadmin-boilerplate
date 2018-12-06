@@ -253,4 +253,12 @@ jQuery(document).ready(function ($) {
             }
         });
     });
+    
+    $('.js-ajax-progress').lsProgress({
+        urls: {
+            import_start: aRouter.admin + "users/import_progress/",
+            import_progress: PATH_ROOT + "uploads/import/log"
+        },
+        params:     ls.registry.get('importData')
+    });
 });

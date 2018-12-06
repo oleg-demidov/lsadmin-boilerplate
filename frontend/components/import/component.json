@@ -2,6 +2,10 @@
     "name": "import",
     "version": "1.0.0",
     "templates": {
-        "item": "item.tpl"
+        "item": "item.tpl",
+        "ajax-progress":"ajax-progress.tpl"
+    },
+    "scripts":{
+        "ajax-progress":"js/ajax-progress.js"
     }
 }
