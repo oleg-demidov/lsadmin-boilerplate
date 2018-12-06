@@ -1589,7 +1589,23 @@ class PluginAdmin_ModuleUsers extends Module
         }
         return true;
     }
-
+    
+    public function ImportUser($aRow, $aReplaceKeys) {
+        $aData = [];
+        foreach ($aReplaceKeys as $key) {
+            $value = next($aRow);
+            if($key == 'skip'){
+                continue;
+            }
+            $aData[$key] = $value;
+        }
+        
+        $this->Logger_Notice(print_r($aData, true));
+        
+        $oUser = Engine::GetEntity("User_User", $aData);
+        
+        return $oUser;
+    }
 }
 
 ?>

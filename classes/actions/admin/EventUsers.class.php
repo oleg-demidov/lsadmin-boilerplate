@@ -36,6 +36,8 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
      * результатов на страницу
      */
     protected $iPerPage = 20;
+    
+    protected $iBufferId = 0;
 
 
     /**
@@ -1751,10 +1753,20 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             return $this->EventImport();
         }
         
-        $aRowHeader = $this->getFirstRow($oSheet);
+        $oRowIterator = $oSheet->getRowIterator();
+        
+        if(!$oRowIterator->valid()){
+            $this->Message_AddError( "Файл пуст", $this->Lang_Get('common.error.error'));
+            return $this->EventImport();
+        }
+                
+        $aRowHeader = $this->getRow($oRowIterator->current());
+        
+        $aFields = Engine::GetEntity("User_User")->_getFields();
+        unset($aFields['#primary_key']);
         
         $this->Viewer_Assign('aRowHeader', $aRowHeader);
-        $this->Viewer_Assign('aFields', Engine::GetEntity("User_User")->_getFields());
+        $this->Viewer_Assign('aFields', $aFields);
     }
     
     public function EventImportProcess() {
@@ -1772,24 +1784,15 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
     
     public function EventAjaxImportProgress() {
         $this->Viewer_SetResponseAjax('json');
+        
         $sFile = getRequest('importFile');
         $aReplaceKeys = getRequest('replaceKeys');
+        $activate = getRequest('activate');
+        $whenDublicate = getRequest('whenDublicate');
         
+        $precent = 0;
       
-        $sBufferFile = Config::Get('path.root.server') . Config::Get('path.uploads.base'). '/import/log';
-        
-        $sFileTmp =  dirname($sBufferFile);
-        if (!is_dir($sFileTmp)) {
-            @mkdir($sFileTmp, 0777, true);
-        }
-        
-        $aBuffer = [
-            'id' => 0,
-            'progress' => 0, 
-            'mess' => 'Открытие файла', 
-            'log' => 'Open file: '.$sFile
-        ];        
-        file_put_contents($sBufferFile, json_encode($aBuffer));
+        $this->pushBuffer('Открытие файла', $precent, '');
         
         try{
             $objPHPExcel = PHPExcel_IOFactory::load($sFile);
@@ -1797,32 +1800,89 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             $oSheet = $objPHPExcel->getActiveSheet();
             
         }catch(PHPExcel_Reader_Exception $e){
-            $aBuffer['id']++;
-            $aBuffer['mess'] = "Ошибка чтения файла";
-            $aBuffer['status'] = "stop";
-            $aBuffer['log'] = $e->getMessage();
-            file_put_contents($sBufferFile, json_encode($aBuffer));
+            $this->pushBuffer('Ошибка чтения файла', $precent, 'stop', $e->getMessage());
             return false;
         }
+        $oRowIterator = $oSheet->getRowIterator(); 
+                
+        $this->pushBuffer('Чтение', $precent, '', "Количество строк: ".$oSheet->getHighestRow());
         
-        $aBuffer['status'] = "Чтение";
-        $aBuffer['progress'] = 1;
-        file_put_contents($sBufferFile, json_encode($aBuffer));
+        $countRows = $oSheet->getHighestRow();
         
-        sleep(5);
-        file_put_contents($sBufferFile, json_encode([progress => 9, status => 'stop']));
+        if(!$oRowIterator->valid()){
+            $this->pushBuffer('Файл пуст', $precent, '', "Количество строк: ".$countRows);
+            return false;
+        }        
+        
+        $oRowIterator->next();
+        
+        $precentDole = $countRows/100;
+        
+        sleep(1);
+        
+        $iterations = 0;
+        
+        while ($oRowIterator->valid()){
+            $aRow = $this->getRow($oRowIterator->current());
+            
+            $oUser = $this->PluginAdmin_Users_ImportUser($aRow, $aReplaceKeys);
+            $oUser->setActivation($activate);
+            
+            $oUser->_setValidateScenario('registration');
+            
+            if(!$oUser->_Validate()){
+                $sVal = $oUser->_getValidateError();
+            }else{
+                $oUser->Save();
+                $sVal = 'Сохранено';
+            }
+            
+            $iterations++;
+            $precent = round( $iterations/$precentDole );
+            $this->pushBuffer('Чтение строк '.$iterations.'/'.$countRows, $precent, '', 
+                    'Пользователь: '.json_encode($aRow). json_encode($sVal, JSON_UNESCAPED_UNICODE));
+            $oRowIterator->next();
+            usleep(100);
+        }        
+        
+        sleep(1);
+        $precent = 100;
+        $this->pushBuffer('Завершено', $precent, 'stop', 'Завершено');
         return false;        
         
     }
     
-    public function getFirstRow(PHPExcel_Worksheet $oSheet) {
-        $aRow = [];
+    public function pushBuffer($mess, $progress, $status = null, $log = null) {
         
-        if(!$oSheet->getRowIterator()->valid()){
-            return $aRow;
+        
+        $sBufferFile = Config::Get('path.root.server') . Config::Get('path.uploads.base'). '/import/buf';
+        $sLogFile = Config::Get('path.root.server') . Config::Get('path.uploads.base'). '/import/log';
+        if(!$this->iBufferId){
+            unlink($sLogFile);
+        }
+            
+        $this->iBufferId++;
+        $aBuffer = [
+            'id' => $this->iBufferId,
+            'progress' => $progress, 
+            'mess' => $mess, 
+            'status' => $status
+        ]; 
+        $sFileTmp =  dirname($sBufferFile);
+        if (!is_dir($sFileTmp)) {
+            @mkdir($sFileTmp, 0777, true);
         }
         
-        $oCellIterator = $oSheet->getRowIterator()->current()->getCellIterator();
+        file_put_contents($sBufferFile, json_encode($aBuffer));
+        if($log !== NULL){
+            file_put_contents($sLogFile, $log.'<br>', FILE_APPEND);
+        }
+    }
+    
+    public function getRow(PHPExcel_Worksheet_Row $oRow) {
+        $aRow = [];
+        
+        $oCellIterator = $oRow->getCellIterator();
         
         while($oCellIterator->valid()){
             $aRow[] = $oCellIterator->current()->getValue();

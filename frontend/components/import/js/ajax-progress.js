@@ -15,7 +15,8 @@
             // Ссылки
             urls: {
                 import_start: null,
-                import_progress: null
+                buf: null,
+                log: null
             },
             // Параметры отправляемые при каждом аякс запросе
             params: {
@@ -49,18 +50,22 @@
         
         progress:function(){
            
-            this._load('import_progress', {}, function(response){
+            this._load('buf', {}, function(response){
                 console.log(response)
                 
                 if(this.bufferId === null || this.bufferId !== response.id){
                     this.elements.precent.html( response.progress + '%' );
                     this.elements.mess.html( response.mess );
-                    if(response.log !== undefined){
-                        this.elements.log.append( '<div>' + response.log + '</div>' );
-                    }
                     this.bufferId = response.id;
                 }                
-                
+                $.ajax({
+                    url: this.option('urls.log'),
+                    complete:function(log){
+                        console.log(log)
+                        this.elements.log.html(  log.responseText  );
+                    }.bind(this)
+                })
+                    
                 if(response.status !== 'stop'){
                     setTimeout(this.progress.bind(this),500);
                 }

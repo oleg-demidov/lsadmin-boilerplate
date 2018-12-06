@@ -12,7 +12,9 @@
     <hr>
     <h2>Настройки полей</h2>
     
-    {$replaceKeys = []}
+    {$replaceKeys = [
+        [value => 'skip', text => $aLang.plugin.admin.users.import.field.when_dublicate.values.skip]
+    ]}
     {foreach $aFields as $field}
         {$replaceKeys[] = [value => $field, text => $field]}
     {/foreach}
