@@ -1825,7 +1825,25 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
         while ($oRowIterator->valid()){
             $aRow = $this->getRow($oRowIterator->current());
             
-            $oUser = $this->PluginAdmin_Users_ImportUser($aRow, $aReplaceKeys);
+            $aRow = $this->PluginAdmin_Users_PrepareImportRow($aRow, $aReplaceKeys);
+            
+            $iterations++;
+            $precent = round( $iterations/$precentDole );
+            
+            $oRowIterator->next();           
+            
+            if(!$oUser = $this->User_GetUserByFilter([ 'mail' => $aRow['mail'] ])){
+                $oUser = Engine::GetEntity("User_User", $aRow);
+            }else{
+                $oUser->_setData($aRow);
+            }           
+                
+            if($whenDublicate == 'skip' and !$oUser->_isNew()){
+                $this->pushBuffer('Чтение строк '.$iterations.'/'.$countRows, $precent, '', 
+                    'Пользователь: '.json_encode($aRow). "Совпал Mail");
+                continue;
+            }
+            
             $oUser->setActivate($activate);
             $oUser->setPasswordConfirm($oUser->getPassword());
             
@@ -1838,11 +1856,9 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
                 $sVal = 'Сохранено';
             }
             
-            $iterations++;
-            $precent = round( $iterations/$precentDole );
             $this->pushBuffer('Чтение строк '.$iterations.'/'.$countRows, $precent, '', 
                     'Пользователь: '.json_encode($aRow). json_encode($sVal, JSON_UNESCAPED_UNICODE));
-            $oRowIterator->next();
+            
             usleep(100);
         }        
         

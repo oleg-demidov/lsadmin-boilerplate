@@ -1590,7 +1590,7 @@ class PluginAdmin_ModuleUsers extends Module
         return true;
     }
     
-    public function ImportUser($aRow, $aReplaceKeys) {
+    public function PrepareImportRow($aRow, $aReplaceKeys) {
         $aData = [];
         foreach ($aReplaceKeys as $i => $key) {
             if($key == 'skip'){
@@ -1598,13 +1598,8 @@ class PluginAdmin_ModuleUsers extends Module
             }
             $aData[$key] = $aRow[$i];
         }
-        $this->Logger_Notice(print_r($aReplaceKeys, true));
-        $this->Logger_Notice(print_r($aRow, true));
-        $this->Logger_Notice(print_r($aData, true));
         
-        $oUser = Engine::GetEntity("User_User", $aData);
-        
-        return $oUser;
+        return $aData;
     }
 }
 

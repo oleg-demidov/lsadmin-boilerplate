@@ -40,8 +40,7 @@
             this._super();
             
             this._load('import_start', {}, function(response){
-                console.log(response);
-                
+                NProgress.start();
             }.bind(this), {showProgress:false});
             
             setTimeout(this.progress.bind(this),1000);          
@@ -50,10 +49,10 @@
         
         progress:function(){
            
-            this._load('buf', {}, function(response){
-                console.log(response)
+            $.getJSON(this.option('urls.buf'), {}, function(response){
                 
                 if(this.bufferId === null || this.bufferId !== response.id){
+                    NProgress.set(response.progress/100);
                     this.elements.precent.html( response.progress + '%' );
                     this.elements.mess.html( response.mess );
                     this.bufferId = response.id;
@@ -64,10 +63,12 @@
                         console.log(log)
                         this.elements.log.html(  log.responseText  );
                     }.bind(this)
-                })
+                });
                     
                 if(response.status !== 'stop'){
                     setTimeout(this.progress.bind(this),500);
+                }else{
+                    NProgress.done();
                 }
             }.bind(this), {showProgress:false});
         }

@@ -596,7 +596,7 @@ return array(
                     'label' => 'Выберете exel файл'
                 ],
                 'when_dublicate' => [
-                    'label' => 'В случае совпадения ключей login, email',
+                    'label' => 'В случае совпадения  email',
                     'values' => [
                         'skip' => 'Пропустить',
                         'update' => 'Обновить'
