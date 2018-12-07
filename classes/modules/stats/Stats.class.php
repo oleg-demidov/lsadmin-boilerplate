@@ -577,7 +577,7 @@ class PluginAdmin_ModuleStats extends Module
             /*
              * данные рейтингов объектов (количество и тип)
              */
-            'ratings'    => $bGatherRatings ? $this->GetRatingsForTypeAndPeriod($aGrowthFilter, $aPeriod) : null
+            //'ratings'    => $bGatherRatings ? $this->GetRatingsForTypeAndPeriod($aGrowthFilter, $aPeriod) : null
         );
     }
 
