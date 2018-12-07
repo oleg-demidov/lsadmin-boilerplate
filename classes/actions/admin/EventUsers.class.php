@@ -1826,9 +1826,10 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             $aRow = $this->getRow($oRowIterator->current());
             
             $oUser = $this->PluginAdmin_Users_ImportUser($aRow, $aReplaceKeys);
-            $oUser->setActivation($activate);
+            $oUser->setActivate($activate);
+            $oUser->setPasswordConfirm($oUser->getPassword());
             
-            $oUser->_setValidateScenario('registration');
+            $oUser->_setValidateScenario('import');
             
             if(!$oUser->_Validate()){
                 $sVal = $oUser->_getValidateError();

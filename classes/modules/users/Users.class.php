@@ -1592,14 +1592,14 @@ class PluginAdmin_ModuleUsers extends Module
     
     public function ImportUser($aRow, $aReplaceKeys) {
         $aData = [];
-        foreach ($aReplaceKeys as $key) {
-            $value = next($aRow);
+        foreach ($aReplaceKeys as $i => $key) {
             if($key == 'skip'){
                 continue;
             }
-            $aData[$key] = $value;
+            $aData[$key] = $aRow[$i];
         }
-        
+        $this->Logger_Notice(print_r($aReplaceKeys, true));
+        $this->Logger_Notice(print_r($aRow, true));
         $this->Logger_Notice(print_r($aData, true));
         
         $oUser = Engine::GetEntity("User_User", $aData);

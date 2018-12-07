@@ -36,6 +36,13 @@ class PluginAdmin_ModuleUser_EntityUser extends PluginAdmin_Inherits_ModuleUser_
      */
     private $bBanChecked = false;
 
+    public function Init() {
+        $this->aValidateRules = array_merge($this->aValidateRules, [
+            array('mail', 'email', 'allowEmpty' => false, 'on' => array('import')),
+            array('mail', 'mail_exists', 'on' => array('import')),
+            array('password', 'string', 'allowEmpty' => false, 'min' => 3, 'on' => array('import')),
+        ]);
+    }
 
     /**
      * Проверить забанен пользователь или нет (возвращает объект бана в случае успеха)
