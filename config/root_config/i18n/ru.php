@@ -489,6 +489,10 @@ return array(
                 ),
             ),
             'user'     => array(
+                'user_guest' => [
+                    'name' => 'Разрешать анониму создание отзывов',
+                    'description' => ''
+                ],
                 'per_page'                 => array(
                     'name'        => 'Число юзеров на страницу на странице статистики и в профиле пользователя',
                     'description' => 'Модуль User',
