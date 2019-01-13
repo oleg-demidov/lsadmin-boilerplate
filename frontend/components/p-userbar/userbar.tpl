@@ -18,10 +18,9 @@
 
     {* Юзербар *}
     {component 'admin:dropdown'
-        text="<img src=\"{$oUserCurrent->getProfileAvatarPath(48)}\" alt=\"Avatar\" class=\"userbar-avatar\" />{$oUserCurrent->getLogin()}"
+        text="<img src=\"{$oUserCurrent->getProfileAvatar()}\" alt=\"Avatar\" class=\"userbar-avatar\" />{$oUserCurrent->getLogin()}"
         classes='admin-userbar js-dropdown-userbar'
         menu=[
-            [ 'text' => 'Мой профиль', 'url' => {router page="admin/users/profile/{$oUserCurrent->getId()}"} ],
             [ 'text' => 'Выйти', 'url' => "{router page='auth/logout'}?security_ls_key={$LIVESTREET_SECURITY_KEY}" ]
         ]}
 </div>
