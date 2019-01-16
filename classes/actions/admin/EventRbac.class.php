@@ -446,7 +446,7 @@ class PluginAdmin_ActionAdmin_EventRbac extends Event
          * Получаем список пользователей
          */
         if ($aRoleUsers['collection']) {
-            $aUserItems = $this->User_GetUsersByArrayId(array_keys($aRoleUsers['collection']));
+            $aUserItems = $this->User_GetUserItemsByFilter(['id in' => array_keys($aRoleUsers['collection'])]);
         } else {
             $aUserItems = array();
         }
