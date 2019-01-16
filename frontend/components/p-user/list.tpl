@@ -59,14 +59,14 @@
                 {* Пользователь *}
                 <td class="cell-user">
                     <div class="p-user-list-card">
-                        <a href="{router page="admin/users/profile/{$user->getId()}"}" class="cell-user-avatar {if $user->isOnline()}user-is-online{/if}">
-                            <img src="{$user->getProfileAvatarPath(48)}"
+                        <a href="{router page="{$user->getLogin()}"}" class="cell-user-avatar {if $user->isOnline()}user-is-online{/if}">
+                            <img src="{$user->getProfileAvatar()}"
                                  alt="avatar"
                                  title="{if $user->isOnline()}{$aLang.user_status_online}{else}{$aLang.user_status_offline}{/if}" />
                         </a>
 
                         <div class="cell-user-login word-wrap">
-                            <a href="{router page="admin/users/profile/{$user->getId()}"}" class="link-border"
+                            <a href="{router page="{$user->getLogin()}"}" class="link-border"
                                title="{$aLang.plugin.admin.users.table_header.login}"><span>{$user->getLogin()}</span></a>
 
                             {if $user->isAdministrator()}
@@ -78,8 +78,8 @@
                             {/if}
                         </div>
 
-                        {if $user->getProfileName()}
-                            <div class="cell-user-name" title="{$aLang.plugin.admin.users.table_header.profile_name}">{$user->getProfileName()}</div>
+                        {if $user->getName()}
+                            <div class="cell-user-name" title="{$aLang.plugin.admin.users.table_header.profile_name}">{$user->getName()}</div>
                         {/if}
 
                         <div class="cell-user-mail" title="{$aLang.plugin.admin.users.table_header.mail}">{$user->getMail()}</div>

@@ -101,7 +101,7 @@
             {foreach $bans as $ban}
                 <tr>
                     <td>
-                        <a href="{router page="admin/users/bans/view/{$ban->getId()}"}">{$ban->getId()}</a>
+                        <a href="{router page="{$ban->getId()}"}">{$ban->getId()}</a>
                     </td>
                     <td>
                         {component 'admin:p-user' template='ban-desc' ban=$ban}
