@@ -1416,8 +1416,34 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
         if (!$oUser = $this->User_GetUserById((int)getRequestStr('user_id'))) {
             return $this->EventNotFound();
         }
-        $this->PluginAdmin_Users_ChangeUserActivate($oUser, 1);
+        
+        $oUser->setActivate(1);
+        $oUser->setDateActivate(date("Y-m-d H:i:s"));
+        $oUser->Save();
+
         $this->Message_AddNotice($this->Lang('notices.users.activated'), '', true);
+        $this->RedirectToReferer();
+    }
+    
+    /**
+     * Активировать пользователя
+     *
+     * @return mixed
+     */
+    public function EventConfirmUser()
+    {
+        $this->Security_ValidateSendForm();
+        /*
+         * есть ли такой пользователь
+         */
+        if (!$oUser = $this->User_GetUserById((int)getRequestStr('user_id'))) {
+            return $this->EventNotFound();
+        }
+        
+        $oUser->setConfirmed(1);
+        $oUser->Save();
+
+        $this->Message_AddNotice($this->Lang('notices.users.confirmed'), '', true);
         $this->RedirectToReferer();
     }
 

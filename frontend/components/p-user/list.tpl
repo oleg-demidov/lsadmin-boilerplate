@@ -68,6 +68,9 @@
                         <div class="cell-user-login word-wrap">
                             <a href="{router page="{$user->getLogin()}"}" class="link-border"
                                title="{$aLang.plugin.admin.users.table_header.login}"><span>{$user->getLogin()}</span></a>
+                            {if $user->getConfirmed()}
+                                {component "icon" icon="check" attributes=[ title => 'Подтверждено']}
+                            {/if}
 
                             {if $user->isAdministrator()}
                                 <i class="p-icon--user-admin" title="{$aLang.plugin.admin.users.admin}"></i>

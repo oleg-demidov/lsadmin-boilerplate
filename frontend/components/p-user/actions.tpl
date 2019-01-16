@@ -20,4 +20,8 @@
     {$items[] = [ 'text' => $aLang.plugin.admin.users.profile.top_bar.activate, 'url' => "{router page='admin/users/activate'}?user_id={$user->getId()}&security_ls_key={$LIVESTREET_SECURITY_KEY}" ]}
 {/if}
 
+{if !$user->getConfirmed()}
+    {$items[] = [ 'text' => $aLang.plugin.admin.users.profile.top_bar.confirm, 'url' => "{router page='admin/users/confirm'}?user_id={$user->getId()}&security_ls_key={$LIVESTREET_SECURITY_KEY}" ]}
+{/if}
+
 {component 'admin:dropdown' text=$text classes="{$classes} js-dropdown" menu=$items}
