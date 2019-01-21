@@ -1155,7 +1155,9 @@ return array(
         'section'                     => array(
             'description' => 'Описание',
         ),
-
+        'seo' => [
+            'title' => 'Настройки seo'
+        ]
     ),
     /*
      * Пагинация

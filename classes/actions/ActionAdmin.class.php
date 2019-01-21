@@ -445,16 +445,11 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
          */
         $this->AddEventPreg('#^settings$#iu', '#^save$#iu', 'Settings::EventSaveConfig');
         /*
-         * Настройки типов топиков
+         * Настройки seo
          */
-        $this->AddEventPreg('#^settings$#iu', '#^topic-type$#iu', '#^$#iu', 'Settings::EventTopicTypeList');
-        $this->AddEventPreg('#^settings$#iu', '#^topic-type$#iu', '#^create$#iu', 'Settings::EventTopicTypeCreate');
-        $this->AddEventPreg('#^settings$#iu', '#^topic-type$#iu', '#^update$#iu', '#^\d{1,6}$#iu',
-            'Settings::EventTopicTypeUpdate');
-        $this->AddEventPreg('#^settings$#iu', '#^topic-type$#iu', '#^remove$#iu', '#^\d{1,6}$#iu',
-            'Settings::EventTopicTypeRemove');
-        $this->AddEventPreg('#^settings$#iu', '#^topic-type$#iu', '#^ajax-sort$#iu',
-            'Settings::EventTopicTypeAjaxSort');
+//        $this->AddEventPreg('#^settings$#iu', '#^seo$#iu', '#^$#iu', 'Settings::EventSeo');
+//        $this->AddEventPreg('#^settings$#iu', '#^save$#iu', '#^seo$#iu', 'Settings::SaveSettingsSeo');
+        
         /*
          * Меню
          */
@@ -564,7 +559,7 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Настройки')->SetName('settings')->SetUrl('settings')->setIcon('wrench')
                 ->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Конфигурация сайта')->SetUrl('config/main'))
-                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('Типы топиков')->SetUrl('topic-type'))
+                //->AddItem(Engine::GetEntity('PluginAdmin_Ui_MenuItem')->SetCaption('SEO')->SetUrl('seo'))
         )// /AddSection
         ->AddSection(
             Engine::GetEntity('PluginAdmin_Ui_MenuSection')->SetCaption('Утилиты')->SetName('utils')->SetUrl('utils')->setIcon('gears')

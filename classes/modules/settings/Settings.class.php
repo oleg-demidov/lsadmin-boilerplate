@@ -36,6 +36,10 @@ class PluginAdmin_ModuleSettings extends ModuleStorage
      */
     const ROOT_CONFIG_GROUPS_KEY = '$config_groups$';
     /*
+     * Ключ конфига движка, который указывает на список групп seo
+     */
+    const SEO_CONFIG_GROUPS_KEY = '$config_groups_seo$';
+    /*
      * Ключ конфига плагина, который хранит список разделов настроек для плагина
      */
     const PLUGIN_CONFIG_SECTIONS = '$config_sections$';

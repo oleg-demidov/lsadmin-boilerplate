@@ -23,5 +23,5 @@
 {/block}
 
 {block 'layout_content'}
-	{component 'admin:p-settings' template='list' sections=$aSections formid=$sAdminSettingsFormSystemId}
+    {component 'admin:p-settings' template='list' sections=$aSections formid=$sAdminSettingsFormSystemId}
 {/block}

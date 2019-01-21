@@ -38,7 +38,7 @@
         {$validator = $parameter->getValidator()}
         {$name = "Settings_Sec{$sectionIteration}_Num{$parameter@iteration}[]"}
 
-        {if in_array($type, array('array', 'integer', 'boolean', 'string', 'float'))}
+        {if in_array($type, array('array', 'integer', 'boolean', 'string', 'float', 'text'))}
             {if $type == 'string' && $validator['type'] == 'Enum'}
                 {$type = 'enum'}
             {/if}

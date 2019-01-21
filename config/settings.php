@@ -37,6 +37,8 @@ $config['settings']['admin_save_form_ajax_use'] = true;
  */
 $config['settings']['show_section_keys'] = false;
 
+
+
 return $config;
 
 ?>

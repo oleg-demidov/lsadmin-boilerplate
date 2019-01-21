@@ -8,6 +8,7 @@
         "field-base": "fields/field.base.tpl",
         "field-boolean": "fields/field.boolean.tpl",
         "field-string": "fields/field.string.tpl",
+        "field-text": "fields/field.text.tpl",
         "field-enum": "fields/field.enum.tpl",
         "field-integer": "fields/field.integer.tpl",
         "field-array": "fields/field.array.tpl",

@@ -53,6 +53,7 @@ return array(
                 ),
             ),
         ),
+        
 
         'user'   => array(
             array(
@@ -155,8 +156,39 @@ return array(
                 ),
             ),
         ),
+        'seo' => [
+            array(
+                'name'         => 'Fend SEO',
+                'description'  =>   '<b>%%login%%</b> - Логин пользователя<br>
+                                    <b>%%name%%</b> - Имя пользователя<br>
+                                    <b>%%rating%%</b> - Рейтинг пользователя(2,5 из 5)<br>
+                                    <b>%%count_vote%%</b> - Колличество голосований<br>
+                                    <b>%%about%%</b> - Описание, о себе<br>',
+                'allowed_keys' => array(
+                    'plugin.admin.seo.title',
+                    'plugin.admin.seo.h1',
+                    'plugin.admin.seo.keywords',
+                    'plugin.admin.seo.description'
+
+                ),
+            ),
+        ]
 
     ),
+    
+//    '$config_groups_seo$' => array(
+//
+//        array(
+//            'name'         => 'Общие',
+//            'allowed_keys' => array(
+//                'plugin.admin.seo.title',
+//                'plugin.admin.seo.h1',
+//                'plugin.admin.seo.keywords',
+//                'plugin.admin.seo.description'
+//                
+//            ),
+//        ),
+//    ),
     /*
      * --- Список ключей конфига, значения которых разрешаем хранить в админке в любом случае - есть для них визуальный интерфейс или нет
      */
@@ -883,6 +915,69 @@ return array(
                 'params' => array(),
             ),
         ),
+        /*
+         *   SEO
+         *      'seo.title',
+                'seo.h1',
+                'seo.keywords',
+                'seo.keywords'
+         */
+        'plugin.admin.seo.title'                                  => array(
+            'type'        => 'text',
+            'name'        => 'config_parameters.seo.title.name',
+            'description' => 'config_parameters.seo.title.description',
+            'validator'   => array(
+                'type'   => 'String',
+                'params' => array(
+                    'min'        => 1,
+                    'max'        => 500,
+                    'allowEmpty' => true,
+                ),
+            ),
+        ),
+        
+        'plugin.admin.seo.h1'                                  => array(
+            'type'        => 'text',
+            'name'        => 'config_parameters.seo.h1.name',
+            'description' => 'config_parameters.seo.h1.description',
+            'validator'   => array(
+                'type'   => 'String',
+                'params' => array(
+                    'min'        => 1,
+                    'max'        => 500,
+                    'allowEmpty' => true,
+                ),
+            ),
+        ),
+        
+        'plugin.admin.seo.keywords'                                  => array(
+            'type'        => 'text',
+            'name'        => 'config_parameters.seo.keywords.name',
+            'description' => 'config_parameters.seo.keywords.description',
+            'validator'   => array(
+                'type'   => 'String',
+                'params' => array(
+                    'min'        => 1,
+                    'max'        => 500,
+                    'allowEmpty' => true,
+                ),
+            ),
+        ),
+        
+         'plugin.admin.seo.description'                                  => array(
+            'type'        => 'text',
+            'name'        => 'config_parameters.seo.description.name',
+            'description' => 'config_parameters.seo.description.description',
+            'validator'   => array(
+                'type'   => 'String',
+                'params' => array(
+                    'min'        => 1,
+                    'max'        => 500,
+                    'allowEmpty' => true,
+                ),
+            ),
+        ),
+        
     ),
 );
 

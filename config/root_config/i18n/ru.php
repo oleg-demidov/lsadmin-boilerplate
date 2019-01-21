@@ -48,6 +48,10 @@ return array(
             'name'   => 'Системные',
             'groups' => array(),
         ),
+        'seo' => array(
+            'name'   => 'SEO',
+            'groups' => array(),
+        ),
     ),
     /*
      *
@@ -106,6 +110,22 @@ return array(
                 'name'        => 'Количество слов из топика для вывода в метатег description',
                 'description' => 'Метатег description будет автоматически заполнен указанным количеством слов из отображаемого топика',
             ),
+            'title' => [
+                'name' => 'Заголовок страницы',
+                'description' => 'Тот что отображается на вкладке тег title'
+            ],
+            'h1' => [
+                'name' => 'Заголовок страницы H1',
+                'description' => 'Заоловок в начале страницы'
+            ],
+            'keywords'=> [
+                'name' => 'Ключевые слова',
+                'description' => 'Meta тег keywords'
+            ],
+            'description'=> [
+                'name' => 'Описание',
+                'description' => 'Meta тег description'
+            ]
         ),
         'general'    => array(
             'close'      => array(
