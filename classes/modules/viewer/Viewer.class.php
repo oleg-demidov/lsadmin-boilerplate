@@ -41,5 +41,26 @@ class PluginAdmin_ModuleViewer extends PluginAdmin_Inherit_ModuleViewer
         $this->oSmarty->addPluginsDir($sDir);
         return true;
     }
+    
+    public function SetSeoTags($aReplace) {
+        echo Config::Get('plugin.admin.seo.title');
+        $this->SetHtmlTitle( $this->ReplaceKeys(Config::Get('plugin.admin.seo.title'), $aReplace) );
+        $this->Assign("sHtmlTitleH1", $this->ReplaceKeys(Config::Get('plugin.admin.seo.h1'), $aReplace) );
+        $this->SetHtmlKeywords(  $this->ReplaceKeys(Config::Get('plugin.admin.seo.keywords'), $aReplace) );
+        $this->SetHtmlDescription( $this->ReplaceKeys(Config::Get('plugin.admin.seo.description'), $aReplace) );
+    }
+    
+    protected function ReplaceKeys($sText, $aReplace) {
+        
+        
+        if (is_array($aReplace) && count($aReplace) && is_string($sText)) {
+            foreach ($aReplace as $sFrom => $sTo) {
+                $aReplacePairs['{$' . $sFrom .'}'] = $sTo;
+            }
+            $sText = strtr($sText, $aReplacePairs);
+        }
+        
+        return $sText;
+    }
 
 }

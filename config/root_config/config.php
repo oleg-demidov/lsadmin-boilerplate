@@ -159,16 +159,19 @@ return array(
         'seo' => [
             array(
                 'name'         => 'Fend SEO',
-                'description'  =>   '<b>%%login%%</b> - Логин пользователя<br>
-                                    <b>%%name%%</b> - Имя пользователя<br>
-                                    <b>%%rating%%</b> - Рейтинг пользователя(2,5 из 5)<br>
-                                    <b>%%count_vote%%</b> - Колличество голосований<br>
-                                    <b>%%about%%</b> - Описание, о себе<br>',
+                'description'  =>   '<b>{$login}</b> - Логин пользователя<br>
+                                    <b>{$name}</b> - Имя пользователя<br>
+                                    <b>{$rating}</b> - Рейтинг пользователя(2,5 из 5)<br>
+                                    <b>{$count_vote}</b> - Колличество голосований<br>
+                                    <b>{$about}</b> - Описание, о себе<br>
+                                    <b>{$global_keywords}</b> - Глобальные ключевые слова<br>
+                                    <b>{$global_description}</b> - Глобальное описание<br>
+                                    <b>{$global_title}</b> - Глобальный заголовок<br>',
                 'allowed_keys' => array(
-                    'plugin.admin.seo.title',
-                    'plugin.admin.seo.h1',
-                    'plugin.admin.seo.keywords',
-                    'plugin.admin.seo.description'
+                    'seo.title',
+                    'seo.h1',
+                    'seo.keywords',
+                    'seo.description'
 
                 ),
             ),
@@ -181,10 +184,10 @@ return array(
 //        array(
 //            'name'         => 'Общие',
 //            'allowed_keys' => array(
-//                'plugin.admin.seo.title',
-//                'plugin.admin.seo.h1',
-//                'plugin.admin.seo.keywords',
-//                'plugin.admin.seo.description'
+//                'seo.title',
+//                'seo.h1',
+//                'seo.keywords',
+//                'seo.description'
 //                
 //            ),
 //        ),
@@ -922,7 +925,7 @@ return array(
                 'seo.keywords',
                 'seo.keywords'
          */
-        'plugin.admin.seo.title'                                  => array(
+        'seo.title'                                  => array(
             'type'        => 'text',
             'name'        => 'config_parameters.seo.title.name',
             'description' => 'config_parameters.seo.title.description',
@@ -936,7 +939,7 @@ return array(
             ),
         ),
         
-        'plugin.admin.seo.h1'                                  => array(
+        'seo.h1'                                  => array(
             'type'        => 'text',
             'name'        => 'config_parameters.seo.h1.name',
             'description' => 'config_parameters.seo.h1.description',
@@ -950,7 +953,7 @@ return array(
             ),
         ),
         
-        'plugin.admin.seo.keywords'                                  => array(
+        'seo.keywords'                                  => array(
             'type'        => 'text',
             'name'        => 'config_parameters.seo.keywords.name',
             'description' => 'config_parameters.seo.keywords.description',
@@ -964,7 +967,7 @@ return array(
             ),
         ),
         
-         'plugin.admin.seo.description'                                  => array(
+         'seo.description'                                  => array(
             'type'        => 'text',
             'name'        => 'config_parameters.seo.description.name',
             'description' => 'config_parameters.seo.description.description',

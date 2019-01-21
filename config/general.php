@@ -53,12 +53,12 @@ $config['$root$']['router']['page']['admin'] = 'PluginAdmin_ActionAdmin';
 $config['$root$']['db']['table']['users_ban'] = '___db.table.prefix___admin_users_ban';
 
 
-$config['seo'] = [
-    'title' => '',
-    'h1' =>'',
-    'description' => '',
-    'keywords' => ''
-];
+//$config['$root$']['seo'] = [
+//    'title' => '',
+//    'h1' =>'',
+//    'description' => '',
+//    'keywords' => ''
+//];
 
 
 return $config;
