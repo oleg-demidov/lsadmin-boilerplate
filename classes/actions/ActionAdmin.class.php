@@ -352,6 +352,8 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
          * активировать пользователя
          */
         $this->AddEventPreg('#^users$#iu', '#^activate$#iu', 'Users::EventActivateUser');
+        
+        $this->AddEventPreg('#^users$#iu', '#^confirm$#iu', 'Users::EventConfirmUser');
 
         /*
          *

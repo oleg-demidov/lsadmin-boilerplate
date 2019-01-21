@@ -14,7 +14,7 @@
     {if $ban->getUserId()}
         {$bannedUser = $LS->User_GetUserById($ban->getUserId())}
 
-        <a href="{router page="admin/users/profile/{$ban->getUserId()}"}">{if $bannedUser}{$bannedUser->getLogin()}{else}#{$ban->getUserId()}{/if}</a>
+        <a href="{router page="{$ban->getUserId()}"}">{if $bannedUser}{$bannedUser->getLogin()}{else}#{$ban->getUserId()}{/if}</a>
     {/if}
 {elseif $ban->getBlockType() == PluginAdmin_ModuleUsers::BAN_BLOCK_TYPE_IP}
     {* IP *}

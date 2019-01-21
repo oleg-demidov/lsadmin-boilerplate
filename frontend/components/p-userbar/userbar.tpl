@@ -21,6 +21,7 @@
         text="<img src=\"{$oUserCurrent->getProfileAvatar()}\" alt=\"Avatar\" class=\"userbar-avatar\" />{$oUserCurrent->getLogin()}"
         classes='admin-userbar js-dropdown-userbar'
         menu=[
+            [ 'text' => 'Мой профиль', 'url' => {router page="{$oUserCurrent->getLogin()}"} ],
             [ 'text' => 'Выйти', 'url' => "{router page='auth/logout'}?security_ls_key={$LIVESTREET_SECURITY_KEY}" ]
         ]}
 </div>
