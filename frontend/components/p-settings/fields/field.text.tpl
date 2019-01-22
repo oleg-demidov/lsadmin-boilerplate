@@ -13,5 +13,6 @@
 {/block}
 
 {block 'field_input' prepend}
-{*    {component 'admin:field' template='textarea' name=$name value=$formid}*}
+    {component 'admin:field' template='hidden' name=$name value=$formid}
+    {component 'admin:field' template='hidden' name=$name value=$key}
 {/block}

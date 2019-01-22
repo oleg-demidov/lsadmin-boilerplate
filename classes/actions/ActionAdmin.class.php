@@ -505,7 +505,7 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
          * чтобы не плодить полупустых методов, так компактнее и удобнее.
          * todo: нужно что-то ещё с меню придумать чтобы полностью автоматизировать процесс создания групп.
          * пока в меню нужно прописывать вручную пункты групп
-         * Все автоматические настройки конфига по урлу /settings/config/[name_group]/
+         * Все автоматические настройки конфига по урлу /settings/config/[name_group;]/
          */
         foreach (array_keys(Config::Get(PluginAdmin_ModuleSettings::ROOT_CONFIG_GROUPS_KEY)) as $sKey) {
             $this->AddEventPreg('#^settings$#iu', '#^config$#iu', '#^' . $sKey . '$#iu',

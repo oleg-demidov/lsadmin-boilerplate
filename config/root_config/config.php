@@ -158,7 +158,7 @@ return array(
         ),
         'seo' => [
             array(
-                'name'         => 'Fend SEO',
+                'name'         => 'Meta теги',
                 'description'  =>   '<b>{$login}</b> - Логин пользователя<br>
                                     <b>{$name}</b> - Имя пользователя<br>
                                     <b>{$rating}</b> - Рейтинг пользователя(2,5 из 5)<br>
@@ -166,7 +166,8 @@ return array(
                                     <b>{$about}</b> - Описание, о себе<br>
                                     <b>{$global_keywords}</b> - Глобальные ключевые слова<br>
                                     <b>{$global_description}</b> - Глобальное описание<br>
-                                    <b>{$global_title}</b> - Глобальный заголовок<br>',
+                                    <b>{$global_title}</b> - Глобальный заголовок<br>
+                                    Использование: $this->Viewer_SetSeoTags($aParams)',
                 'allowed_keys' => array(
                     'seo.title',
                     'seo.h1',
@@ -967,7 +968,7 @@ return array(
             ),
         ),
         
-         'seo.description'                                  => array(
+        'seo.description'                                  => array(
             'type'        => 'text',
             'name'        => 'config_parameters.seo.description.name',
             'description' => 'config_parameters.seo.description.description',

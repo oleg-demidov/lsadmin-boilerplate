@@ -693,7 +693,7 @@ class PluginAdmin_ModuleSettings extends ModuleStorage
          * Получить описание настроек из конфига
          */
         $aSettingsInfo = $this->GetConfigSettings($sConfigName);
-        foreach ($_POST as $aPostRawData) {
+        foreach ($_POST as $aPostRawData) {            
             /*
              * Проверка это ли параметр настроек формы
              */
@@ -718,7 +718,7 @@ class PluginAdmin_ModuleSettings extends ModuleStorage
                      * получить значение данного параметра на основе данных о нем
                      */
                     $mValue = $this->GetFormParameterValue($aPostRawData, $oParamInfo);
-
+                   
                     /*
                      * Валидация параметра
                      */
