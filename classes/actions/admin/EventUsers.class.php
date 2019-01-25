@@ -1871,7 +1871,7 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             }
             
             $oUser->setActivate($activate);
-            $oUser->setPasswordConfirm($oUser->getPassword());
+            $oUser->setPassword($this->User_MakeHashPassword($oUser->getPassword()));
             
             $oUser->_setValidateScenario('import');
             
@@ -1880,6 +1880,7 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             }else{
                 $oUser->Save();
                 $sVal = 'Сохранено';
+                
             }
             
             $this->pushBuffer('Чтение строк '.$iterations.'/'.$countRows, $precent, '', 
