@@ -1874,8 +1874,9 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             }
             
             $oUser->setActivate($activate);
-            $oUser->setPassword( $this->User_MakeHashPassword($oUser->getPassword()));            
-            $this->Logger_Notice(print_r($oUser->_getData(), true));
+
+            $oUser->setPassword($this->User_MakeHashPassword($oUser->getPassword()));
+                        
             if(!$oUser->_Validate()){
                 $sVal = $oUser->_getValidateError();
             }else{
@@ -1887,6 +1888,7 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
                 $sPath = $this->Fs_GetPathRelative($mResult->getFileServerPath('photo'), true);
                 $oUser->setPhoto($sPath);
                 $oUser->Update();
+
             }
             
             $this->pushBuffer('Чтение строк '.$iterations.'/'.$countRows, $precent, '', 
