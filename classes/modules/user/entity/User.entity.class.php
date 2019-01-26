@@ -38,11 +38,82 @@ class PluginAdmin_ModuleUser_EntityUser extends PluginAdmin_Inherits_ModuleUser_
 
     public function Init() {
         $this->aValidateRules = array_merge($this->aValidateRules, [
-            array('mail', 'email', 'allowEmpty' => false, 'on' => array('import')),
-            array('login', 'string', 'min' => 3, 'on' => array('import')),
-            array('password', 'string', 'allowEmpty' => false, 'min' => 3, 'on' => array('import')),
+            array(
+                'mail', 
+                'email', 
+                'on' => array('import')
+            ),
+            [   
+                'mail', 
+                'mail_exists', 
+                'on' => array('import')
+            ],
+            [
+                'login', 
+                'login_exists', 
+                'on' => array('import')
+            ],
+            [
+                'login', 
+                'login', 
+                'on' => array('import')
+            ],
+            [   'name', 
+                'string', 
+                'min' => 3, 
+                'max' => 200, 
+                'on' => array( 'import')
+            ],
+            [   
+                'role', 
+                'string', 
+                'allowEmpty' => false,
+                'on' => array('import')
+            ],
+            [   
+                'role', 
+                'role_exists', 
+                'on' => array('import')
+            ],
+            [   
+                'phone', 
+                'string',
+                'max' => 20,
+                'on' => array( 'import')
+            ],
+            [   
+                'site', 
+                'url',
+                'max' => 500,
+                'on' => array( 'import')
+            ],
+            [   
+                'address', 
+                'string',
+                'max' => 500,
+                'on' => array( 'import')
+            ],
+            [   
+                'about', 
+                'string',
+                'max' => 1000,
+                'on' => array( 'import')
+            ],
+            [
+                'password', 
+                'string', 
+                'min' => 10,
+                'max' => 50,
+                'on' => array('import'),
+            ],
+            [   
+                'photo', 
+                'url',
+                'on' => array( 'import')
+            ],
         ]);
     }
+    
 
     /**
      * Проверить забанен пользователь или нет (возвращает объект бана в случае успеха)

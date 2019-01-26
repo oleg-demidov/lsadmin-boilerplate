@@ -1786,7 +1786,7 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             return $this->EventImport();
         }
                 
-        $aRowHeader = $this->getRow($oRowIterator->current());
+        $aRowHeader = $this->getRow($oRowIterator->current()); 
         
         $aFields = Engine::GetEntity("User_User")->_getFields();
         unset($aFields['#primary_key']);
@@ -1828,7 +1828,8 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
         }catch(PHPExcel_Reader_Exception $e){
             $this->pushBuffer('Ошибка чтения файла', $precent, 'stop', $e->getMessage());
             return false;
-        }
+        }        
+
         $oRowIterator = $oSheet->getRowIterator(); 
                 
         $this->pushBuffer('Чтение', $precent, '', "Количество строк: ".$oSheet->getHighestRow());
@@ -1839,7 +1840,7 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             $this->pushBuffer('Файл пуст', $precent, '', "Количество строк: ".$countRows);
             return false;
         }        
-        
+
         $oRowIterator->next();
         
         $precentDole = $countRows/100;
@@ -1849,6 +1850,7 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
         $iterations = 0;
         
         while ($oRowIterator->valid()){
+            
             $aRow = $this->getRow($oRowIterator->current());
             
             $aRow = $this->PluginAdmin_Users_PrepareImportRow($aRow, $aReplaceKeys);
@@ -1859,10 +1861,11 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             $oRowIterator->next();           
             
             if(!$oUser = $this->User_GetUserByFilter([ 'mail' => $aRow['mail'] ])){
-                $oUser = Engine::GetEntity("User_User", $aRow);
-            }else{
-                $oUser->_setData($aRow);
-            }           
+                $oUser = Engine::GetEntity("User_User");
+            }
+            
+            $oUser->_setValidateScenario('import');
+            $oUser->_setData($aRow);
                 
             if($whenDublicate == 'skip' and !$oUser->_isNew()){
                 $this->pushBuffer('Чтение строк '.$iterations.'/'.$countRows, $precent, '', 
@@ -1871,15 +1874,19 @@ class PluginAdmin_ActionAdmin_EventUsers extends Event
             }
             
             $oUser->setActivate($activate);
-            $oUser->setPasswordConfirm($oUser->getPassword());
-            
-            $oUser->_setValidateScenario('import');
-            
+            $oUser->setPassword( $this->User_MakeHashPassword($oUser->getPassword()));            
+            $this->Logger_Notice(print_r($oUser->_getData(), true));
             if(!$oUser->_Validate()){
                 $sVal = $oUser->_getValidateError();
             }else{
                 $oUser->Save();
-                $sVal = 'Сохранено';
+                $sVal = 'Сохранено ';
+                if(is_string($mResult = $this->User_SetProfilePhotoByUrl($oUser, $oUser->getPhoto()))){
+                    $sVal .= $mResult;
+                }
+                $sPath = $this->Fs_GetPathRelative($mResult->getFileServerPath('photo'), true);
+                $oUser->setPhoto($sPath);
+                $oUser->Update();
             }
             
             $this->pushBuffer('Чтение строк '.$iterations.'/'.$countRows, $precent, '', 
