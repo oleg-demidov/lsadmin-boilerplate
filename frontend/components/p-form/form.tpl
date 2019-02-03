@@ -20,7 +20,11 @@
 
     {if is_array($form)}
         {foreach $form as $field}
-            {component 'admin:field' template=$field.field params=$field}
+            {if is_array($field)}
+                {component 'admin:field' template=$field.field params=$field}
+            {else}
+                {$field}
+            {/if}            
         {/foreach}
     {else}
         {$form}
