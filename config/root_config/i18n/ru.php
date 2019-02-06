@@ -152,6 +152,19 @@ return array(
                 'name'        => 'Почта администратора',
                 'description' => 'На неё будут приходить письма, например, при жалобах на пользователей',
             ),
+            'recaptcha'      => array(
+                'site_key' => array(
+                    'name'        => 'Site key',
+                ),
+                'secret_key' => array(
+                    'name'        => 'Secret key',
+                ),
+                'use_ip' => array(
+                    'name'        => 'Use ip',
+                    'description' => 'Проверять ip адрес пользователя',
+                ),
+            ),
+            
         ),
         'block'      => array(
             'stream' => array(

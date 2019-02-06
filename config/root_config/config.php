@@ -44,13 +44,21 @@ return array(
                     'view.name',
                     'view.description',
                     'view.keywords',
-                    'general.admin_mail',
+                    //'general.admin_mail',
                     'general.close',
                     'general.reg.*',
                     'general.login.captcha',
                     'module.user.captcha_use_registration',
                     'module.user.user_guest'
                 ),
+            ),
+            array(
+                'name'         => 'Google рекаптча',
+                'allowed_keys' => array(
+                    'module.validate.recaptcha.site_key',
+                    'module.validate.recaptcha.secret_key',
+                    'module.validate.recaptcha.use_ip'
+                ),                
             ),
         ),
         
@@ -394,6 +402,39 @@ return array(
 //                'params' => array(),
 //            ),
 //        ),
+        /*
+         * Рекаптча
+         */
+        'module.validate.recaptcha.site_key' => array(
+            'type'        => 'string',
+            'name'        => 'config_parameters.general.recaptcha.site_key.name',
+            'validator'   => array(
+                'type'   => 'Email',
+                'params' => array(
+                    'allowEmpty' => true,
+                ),
+            ),
+        ),
+        'module.validate.recaptcha.secret_key' => array(
+            'type'        => 'string',
+            'name'        => 'config_parameters.general.recaptcha.secret_key.name',
+            'validator'   => array(
+                'type'   => 'Email',
+                'params' => array(
+                    'allowEmpty' => true,
+                ),
+            ),
+        ),
+        'module.validate.recaptcha.use_ip' => array(
+            'type'        => 'boolean',
+            'name'        => 'config_parameters.general.recaptcha.use_ip.name',
+            'description' => 'config_parameters.general.recaptcha.use_ip.description',
+            'validator'   => array(
+                'type'   => 'Boolean',
+                'params' => array(),
+            ),
+        ),
+        
         'general.admin_mail'                         => array(
             'type'        => 'string',
             'name'        => 'config_parameters.general.admin_mail.name',
