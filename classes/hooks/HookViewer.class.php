@@ -38,6 +38,7 @@ class PluginAdmin_HookViewer extends Hook
 
     public function EngineInitComplete()
     {
+        
         /*
          * добавить директорию с плагинами для Smarty
          */
