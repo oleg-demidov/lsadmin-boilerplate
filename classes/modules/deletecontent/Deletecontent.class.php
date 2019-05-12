@@ -101,21 +101,6 @@ class PluginAdmin_ModuleDeletecontent extends Module
         ]);
     }
     
-    public function DeleteMedia($oUser) {
-        
-        $aMedias = $this->Media_GetMediaItemsByFilter([
-            'user_id' => $oUser->getId(),
-            '#index-from' => 'id'
-        ]);
-        
-        foreach ($aMedias as $oMedia) {
-            $oMedia->Delete();
-        }
-        
-        $this->Media_DeleteTargetItemsByFilter([
-            'media_id in' => array_keys($aMedias)?array_keys($aMedias):[0],
-        ]);
-    }
 }
 
 ?>
