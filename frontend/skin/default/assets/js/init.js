@@ -262,4 +262,6 @@ jQuery(document).ready(function ($) {
         },
         params:     ls.registry.get('importData')
     });
+    
+    ls.hook.run('ls_template_init_end',[],window);
 });
