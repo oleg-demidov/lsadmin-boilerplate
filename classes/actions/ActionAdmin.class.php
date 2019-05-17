@@ -39,7 +39,6 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
     public function Init()
     {
         
-        Config::Set('view.skin', 'default');
         /*
          * Если нет прав доступа - перекидываем на 404 страницу
          */
