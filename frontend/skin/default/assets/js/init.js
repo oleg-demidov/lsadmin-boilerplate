@@ -19,7 +19,7 @@
  */
 
 jQuery(document).ready(function ($) {
-
+    ls.hook.run('ls_template_init_start',[],window);
     /**
      * Иниц-ия модулей ядра
      */
@@ -220,12 +220,12 @@ jQuery(document).ready(function ($) {
     /**
      * Custom checkboxes and radios
      */
-    $('input').iCheck({
-        labelHover: false,
-        cursor: true,
-        checkboxClass: 'icheckbox_minimal',
-        radioClass: 'iradio_minimal'
-    });
+//    $('input').iCheck({
+//        labelHover: false,
+//        cursor: true,
+//        checkboxClass: 'icheckbox_minimal',
+//        radioClass: 'iradio_minimal'
+//    });
 
     /* Выделение всех чексбоксов */
     $('.js-check-all').on('ifChanged', function () {
@@ -262,6 +262,8 @@ jQuery(document).ready(function ($) {
         },
         params:     ls.registry.get('importData')
     });
+    
+    $('.btn').bsButton();
 
     ls.hook.run('ls_template_init_end',[],window);
 });

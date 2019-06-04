@@ -21,7 +21,7 @@ $config['components'] = array(
 
     // Компоненты LS CMS
     'admin:note', 'admin:icons-contact', 'admin:toolbar-scrollup', 'admin:toolbar-scrollnav',
-    'admin:media', 'admin:property', 'admin:content', 'admin:activity',
+    'admin:media', 'admin:property', 'admin:content', 'admin:activity', 'tinymce', 'bs-button'
 );
 
 /**
@@ -48,7 +48,7 @@ $config['admin']['assets']['js'] = array(
     'assets/js/init.js',
     // Vendor scripts
     'assets/js/vendor/highcharts/highcharts.js',
-    'assets/js/vendor/icheck/jquery.icheck.js'
+//    'assets/js/vendor/icheck/jquery.icheck.js'
 );
 
 
