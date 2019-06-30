@@ -21,3 +21,5 @@
 		{include file=$sAdminTemplateInclude}
 	{/if}
 {/block}
+
+{block "layout_modals" append}{/block}
