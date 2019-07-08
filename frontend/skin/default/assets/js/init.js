@@ -234,12 +234,12 @@ jQuery(document).ready(function ($) {
 //    });
 
     /* Выделение всех чексбоксов */
-    $('.js-check-all').on('ifChanged', function () {
-        var checkAll = $(this);
-        var checkboxes = $('.' + checkAll.data('checkboxes-class'));
-
-        if (checkAll.is(':checked')) checkboxes.iCheck('check'); else checkboxes.iCheck('uncheck');
-    });
+//    $('.js-check-all').on('ifChanged', function () {
+//        var checkAll = $(this);
+//        var checkboxes = $('.' + checkAll.data('checkboxes-class'));
+//
+//        if (checkAll.is(':checked')) checkboxes.iCheck('check'); else checkboxes.iCheck('uncheck');
+//    });
 
 
     /**

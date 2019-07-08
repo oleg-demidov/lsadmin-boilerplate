@@ -18,7 +18,7 @@
 
     {* Юзербар *}
     {component 'admin:dropdown'
-        text="<img src=\"{$oUserCurrent->getProfileAvatar()}\" alt=\"Avatar\" class=\"userbar-avatar\" />{$oUserCurrent->getLogin()}"
+        text="<img src=\"{$oUserCurrent->getProfileAvatar('50x50')}\" alt=\"Avatar\" class=\"userbar-avatar\" />{$oUserCurrent->getLogin()}"
         classes='admin-userbar js-dropdown-userbar'
         menu=[
             [ 'text' => 'Мой профиль', 'url' => {router page="{$oUserCurrent->getLogin()}"} ],
