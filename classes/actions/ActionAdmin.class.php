@@ -88,10 +88,7 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
          *
          */
 
-        /*
-         * Модуль "Property"
-         */
-        $this->RegisterEventExternal('Property', 'PluginAdmin_ActionAdmin_EventProperty');
+        
         /*
          * Модуль "Category"
          */
@@ -143,19 +140,7 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
          *
          */
 
-        /*
-         *
-         * --- Модуль свойств ----
-         *
-         */
-        $this->AddEventPreg('#^properties$#i', '#^[\w-]+$#i', '#^$#i', 'Property::EventPropertiesTarget');
-        $this->AddEventPreg('#^properties$#i', '#^[\w-]+$#i', '#^remove$#i', '#^\d{1,5}$#i',
-            'Property::EventPropertyRemove');
-        $this->AddEventPreg('#^properties$#i', '#^[\w-]+$#i', '#^update$#i', '#^\d{1,5}$#i',
-            'Property::EventPropertyUpdate');
-        $this->AddEventPreg('#^properties$#i', '#^[\w-]+$#i', '#^create$#i', '#^$#i', 'Property::EventPropertyCreate');
-        $this->AddEventPreg('#^ajax$#i', '#^properties$#i', '#^sort-save$#i', '#^$#i', 'Property::EventAjaxSortSave');
-
+        
         /*
          *
          * --- Модуль категорий ----
