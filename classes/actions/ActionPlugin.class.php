@@ -47,7 +47,7 @@ abstract class PluginAdmin_ActionPlugin extends ActionPlugin
                     }
                 }
             }
-        }
+        } 
         $this->Viewer_Assign('sAdminTemplateInclude', $sActionTemplatePath);
         $this->sActionTemplate = Plugin::GetPath('admin') . 'frontend/skin/default/actions/ActionAdmin/embed_plugin/plugin.tpl';
     }
