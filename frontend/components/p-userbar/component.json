@@ -1,8 +1,7 @@
 {
     "name": "p-userbar",
     "version": "1.0.0",
-    "dependencies": {
-    },
+   
     "templates": {
         "p-userbar": "userbar.tpl"
     },
