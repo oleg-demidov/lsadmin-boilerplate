@@ -8,25 +8,12 @@
         }
     ],
     "require": {
-        "dellirom/exel.tpl": "dev-master"
+        "dellirom/exel.tpl": "dev-master",
+        "olegdemidov/exel": "dev-master"
     },
     "autoload": {
         "classmap" : [
             "PluginAdmin.class.php"
         ]
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "dellirom/exel.tpl",
-                "version": "dev-master",
-                "source": {
-                    "url": "https://github.com/dellirom/exel.tpl",
-                    "type": "git",
-                    "reference": "origin/master"
-                }
-            }
-        }
-    ]
+    }
 }
