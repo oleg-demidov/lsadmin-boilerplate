@@ -8,7 +8,6 @@
         }
     ],
     "require": {
-        "dellirom/exel.tpl": "dev-master",
         "olegdemidov/exel": "dev-master"
     },
     "autoload": {
