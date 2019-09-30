@@ -1,6 +1,6 @@
 {
-    "name": "Fend",
-    "description": "Описание проекта Fend.",
+    "name": "livestreet/plugin-admin",
+    "description": "Админка для Livestreet",
     "authors": [
         {
             "name": "oleg",
@@ -9,11 +9,11 @@
     ],
     "require": {
         "dellirom/exel.tpl": "dev-master"
-        
     },
     "autoload": {
-        
-        "classmap": ["vendor/dellirom/exel.tpl/Classes/PHPExcel/IOFactory.php"]
+        "classmap" : [
+            "PluginAdmin.class.php"
+        ]
     },
     "repositories": [
         {
