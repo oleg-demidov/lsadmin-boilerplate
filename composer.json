@@ -2,7 +2,6 @@
     "name": "livestreet/plugin-admin",
     "description": "Админка для Livestreet",
     "type": "livestreet-plugin",
-    "code":"admin",
     "license":"MIT",
     "authors": [
         {
@@ -12,6 +11,9 @@
     ],
     "require": {
         "olegdemidov/exel": "dev-master"
+    },
+    "extra":{
+        "code":"admin"
     },
     "autoload": {
         "classmap" : [
