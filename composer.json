@@ -1,6 +1,7 @@
 {
     "name": "livestreet/plugin-admin",
     "description": "Админка для Livestreet",
+    "type": "livestreet-plugin",
     "authors": [
         {
             "name": "oleg",
