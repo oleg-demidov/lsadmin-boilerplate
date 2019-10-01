@@ -2,6 +2,7 @@
     "name": "livestreet/plugin-admin",
     "description": "Админка для Livestreet",
     "type": "livestreet-plugin",
+    "license":"MIT",
     "authors": [
         {
             "name": "oleg",
