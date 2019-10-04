@@ -981,7 +981,7 @@ class PluginAdmin_ModuleSettings extends ModuleStorage
      */
     private function GetRootConfigSchemePath()
     {
-        return Plugin::GetPath(__CLASS__) . self::PATH_TO_ROOT_CONFIG_SCHEME;
+        return Plugin::GetPath(__CLASS__) . '/' . self::PATH_TO_ROOT_CONFIG_SCHEME;
     }
 
 

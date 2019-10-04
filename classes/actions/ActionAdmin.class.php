@@ -38,7 +38,7 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
 
     public function Init()
     {
-        
+        return __METHOD__;
         
         /*
          * Если нет прав доступа - перекидываем на 404 страницу

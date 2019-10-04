@@ -33,6 +33,7 @@ class PluginAdmin_ActionAdmin_EventDashboard extends Event
      */
     public function EventIndex()
     {
+        return __METHOD__;
         $this->SetTemplateAction('index/index');
         /*
          * данные для графика

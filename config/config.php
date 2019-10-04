@@ -19,14 +19,20 @@
  *
  */
 
-/*
- *
- * --- Базовые настройки ---
- *
- */
+
+$bans = require __DIR__ . '/bans.php';
+
+$utils = require __DIR__ . '/encoding_checking_dirs.php';
+
+$config_scheme = require __DIR__ . '/config_scheme.php';
+
+$config_sections = require __DIR__ . '/config_sections.php';
+
+$settings = require __DIR__ . '/settings.php';
+
+$users = require __DIR__ . '/users.php';
 
 $config = array();
-
 /*
  * количество событий по-умолчанию для ленты последней активности главной страницы админки
  */
@@ -52,15 +58,16 @@ $config['$root$']['router']['page']['admin'] = 'PluginAdmin_ActionAdmin';
  */
 $config['$root$']['db']['table']['users_ban'] = '___db.table.prefix___admin_users_ban';
 
+$config['bans'] = $bans;
 
-//$config['$root$']['seo'] = [
-//    'title' => '',
-//    'h1' =>'',
-//    'description' => '',
-//    'keywords' => ''
-//];
+$config['utils'] = $utils;
 
+$config['$config_scheme$'] = $config_scheme;
+
+$config['$config_sections$'] = $config_sections;
+
+$config['settings'] = $settings;
+
+$config['users'] = $users;
 
 return $config;
-
-?>

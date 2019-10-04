@@ -30,7 +30,7 @@ $config = array();
 /*
  * количество пользователей на страницу
  */
-$config['users']['per_page'] = 10;
+$config['per_page'] = 10;
 
 /*
  * Разрешенные имена полей для поиска по пользователям
@@ -43,7 +43,7 @@ $config['users']['per_page'] = 10;
  * 								которые будут показаны в селекте, если не указано - будет простой инпут
  * "allow_empty_search"			разрешить ли поиск с пустым значением для этого поля (по-умолчанию запрещено)
  */
-$config['users']['search_allowed_types'] = array(
+$config['search_allowed_types'] = array(
     'id'              => array('search_as_part_of_string' => false),
     'mail'            => array('search_as_part_of_string' => true),
     'password'        => array('search_as_part_of_string' => false),
@@ -62,7 +62,7 @@ $config['users']['search_allowed_types'] = array(
 /*
  * Корректные значения (поля) для сортировок пользователей
  */
-$config['users']['correct_sorting_order'] = array(
+$config['correct_sorting_order'] = array(
     'u.id',
     'u.login',
     'u.mail',
@@ -80,7 +80,7 @@ $config['users']['correct_sorting_order'] = array(
 /*
  * Сортировка пользователей по-умолчанию (если указанная сортировка некорректна или не разрешена)
  */
-$config['users']['default_sorting_order'] = 'u.id';
+$config['default_sorting_order'] = 'u.id';
 
 /*
  *
@@ -96,13 +96,13 @@ $config['users']['default_sorting_order'] = 'u.id';
  * Другие количества лет (меньше данного значения т.е. 0 - 6 лет или минусовые) не будут учитываться и будут отброшены как некорректные
  * в формировании графика возрастного распределения на странице статистики пользователей
  */
-$config['users']['min_user_age_difference_to_show_users_age_stats'] = 7;        // лет
+$config['min_user_age_difference_to_show_users_age_stats'] = 7;        // лет
 
 /*
  * максимальное количество элементов при показе статистики проживаний пользователей
  * все остальные элементы будут спрятаны в селект
  */
-$config['users']['max_items_in_living_users_stats'] = 20;
+$config['max_items_in_living_users_stats'] = 20;
 
 /*
  *
@@ -114,13 +114,13 @@ $config['users']['max_items_in_living_users_stats'] = 20;
  * id пользователей, которых нельзя удалять из сайта
  * значение по-умолчанию - 1 (это автоматически создаваемый при установке движка пользователь "admin")
  */
-$config['users']['block_deleting_user_ids'] = array(1);
+$config['block_deleting_user_ids'] = array(1);
 
 /*
  * id пользователей, у которых нельзя удалять/добавлять права администратора
  * значение по-умолчанию - 1 (это автоматически создаваемый при установке движка пользователь "admin")
  */
-$config['users']['block_managing_admin_rights_user_ids'] = array(1);
+$config['block_managing_admin_rights_user_ids'] = array(1);
 
 /*
  *
@@ -131,12 +131,12 @@ $config['users']['block_managing_admin_rights_user_ids'] = array(1);
 /*
  * количество на страницу
  */
-$config['users']['complaints']['per_page'] = 20;
+$config['complaints']['per_page'] = 20;
 
 /*
  * Корректные значения (поля) для сортировок жалоб на пользователей
  */
-$config['users']['complaints']['correct_sorting_order'] = array(
+$config['complaints']['correct_sorting_order'] = array(
     'c.id',
     'c.target_user_id',
     'c.user_id',
@@ -148,8 +148,6 @@ $config['users']['complaints']['correct_sorting_order'] = array(
 /*
  * Сортировка жалоб на пользователей по-умолчанию (если указанная сортировка некорректна или не разрешена)
  */
-$config['users']['complaints']['default_sorting_order'] = 'c.date_add';
+$config['complaints']['default_sorting_order'] = 'c.date_add';
 
 return $config;
-
-?>

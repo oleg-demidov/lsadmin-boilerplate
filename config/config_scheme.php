@@ -27,12 +27,10 @@
  *
  */
 
-$config = array();
-
 /*
  * Описание всех параметров админки
  */
-$config['$config_scheme$'] = array(
+return array(
 
     /*
      * Баны
@@ -188,53 +186,3 @@ $config['$config_scheme$'] = array(
         ),
     )
 );
-
-/*
- * Разделы настроек
- */
-$config['$config_sections$'] = array(
-    /*
-     * раздел "Баны"
-     *
-     * tip: ключ "bans" указывать не обязательно, здесь он нужен чтобы лоадер движка корректно загрузил два конфига (песочницы и реальных настроек),
-     * 		т.к. ассоциативные массивы обьеденяются при загрузке.
-     * 		В плагинах нужно указывать ключ для группы настроек только если группы настроек разделены на несколько файлов
-     */
-    'bans'     => array(
-        'name'         => 'config_sections.bans.title',
-        'allowed_keys' => array(
-            'bans*',
-        ),
-    ),
-    /*
-     * раздел "каталог"
-     */
-    'catalog'  => array(
-        'name'         => 'config_sections.catalog.title',
-        'allowed_keys' => array(
-            'catalog*',
-        ),
-    ),
-    /*
-     * раздел "настройки"
-     */
-    'settings' => array(
-        'name'         => 'config_sections.settings.title',
-        'allowed_keys' => array(
-            'settings*',
-        ),
-    ),
-    /*
-     * раздел "пользователи"
-     */
-    'users'    => array(
-        'name'         => 'config_sections.users.title',
-        'allowed_keys' => array(
-            'users*',
-        ),
-    ),
-);
-
-return $config;
-
-?>
