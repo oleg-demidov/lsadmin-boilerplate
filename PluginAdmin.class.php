@@ -40,10 +40,6 @@ class PluginAdmin extends Plugin
              */
             'ModuleViewer',
             /*
-             * Расширение возможностей работы с Asset
-             */
-            'ModuleAsset',
-            /*
              * Расширение возможностей работы с хранилищем и сохранением данных конфигов
              */
             'ModuleStorage',
@@ -59,17 +55,9 @@ class PluginAdmin extends Plugin
              * Для реализации механизма read only банов для движка
              */
             'ModuleACL',
-            /*
-             * Для дополнения методов, нужных для статистики пользователей
-             */
-            'ModuleGeo',
+            
         ),
-        'mapper' => array(
-            /*
-             * Для дополнения методов, нужных для статистики пользователей
-             */
-            'ModuleGeo_MapperGeo',
-        ),
+        
         'entity' => array(
             /*
              * Добавляем новый тип валидатора - Array
@@ -83,10 +71,7 @@ class PluginAdmin extends Plugin
              * Для установки счетчика последнего сброса кеша для ксс файлов
              */
             'ModuleAsset_EntityTypeCss',
-            /*
-             * Для установки счетчика последнего сброса кеша для жс файлов
-             */
-            'ModuleAsset_EntityTypeJs',
+            
         )
     );
 

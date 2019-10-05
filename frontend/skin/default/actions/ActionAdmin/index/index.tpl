@@ -2,13 +2,13 @@
  * Главная страница
  *}
 
-{extends "{$aTemplatePathPlugin.admin}layouts/layout.base.tpl"}
+{extends "layouts/layout.base.tpl"}
 
 {block 'layout_content_actionbar'}
 	{component 'admin:p-dashboard.actionbar-stats'}
 {/block}
 
-{block 'layout_content'}
+{block 'layout_content'}ee
 	{**
 	 * График
 	 *}
