@@ -78,7 +78,7 @@ $config['components'] = array(
     'admin:media', 'admin:property', 'admin:content', 'admin:activity', 'tinymce', 'bs-button'
 );
 
-$config['asets'] = $assets;
+$config['assets'] = $assets;
 
 $config['bans'] = $bans;
 
