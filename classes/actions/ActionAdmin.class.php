@@ -49,8 +49,8 @@ class PluginAdmin_ActionAdmin extends ActionPlugin
         /*
          * задать таблицы стилей и жс файлов для админки
          */
-        Config::Set('assets', Config::Get('plugin.admin.assets'));
-
+        Config::Set('assets', array_merge_recursive(Config::Get('assets'), (array)Config::Get('plugin.admin.assets')));
+        
         /*
          * получить группы настроек системного конфига
          */

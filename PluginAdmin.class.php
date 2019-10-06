@@ -89,7 +89,7 @@ class PluginAdmin extends Plugin
         /**
          * выполнить загрузку конфигов системы и плагинов
          */
-        $this->PluginAdmin_Settings_AutoLoadConfigs();
+//        $this->PluginAdmin_Settings_AutoLoadConfigs();
         /**
          * Фикс загрузки параметров кеша
          */
