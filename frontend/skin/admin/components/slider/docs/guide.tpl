@@ -9,7 +9,7 @@
         });
     </script>
 
-    {component 'slider' classes='js-my-slider' images=[
+    {component 'admin:slider' classes='js-my-slider' images=[
         [ src => $oUserCurrent->getProfileFotoPath() ],
         [ src => $oUserCurrent->getProfileFotoPath() ],
         [ src => $oUserCurrent->getProfileFotoPath() ]

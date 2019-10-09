@@ -59,7 +59,7 @@
 
         {* Tabs *}
         {if is_array( $tabs )}
-            {component 'tabs' classes='js-tabs-block' params=$tabs}
+            {component 'admin:tabs' classes='js-tabs-block' params=$tabs}
         {elseif $tabs}
             {$tabs}
         {/if}

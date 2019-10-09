@@ -1,11 +1,7 @@
 {
-    "name": "notification",
+    "name" : "notification",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "css-reset": "*"
-    },
+    
     "styles": {
         "notification": "css/notification.css"
     },

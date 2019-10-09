@@ -5,7 +5,7 @@
 {test_heading text='Использование'}
 
 {capture 'test_example_content'}
-    {component 'jumbotron'
+    {component 'admin:jumbotron'
         title    = 'Lorem ipsum'
         subtitle = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit omnis, error incidunt alias a animi'
         titleUrl = '/'}

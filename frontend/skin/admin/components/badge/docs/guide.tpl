@@ -5,8 +5,8 @@
 <p>В параметре <code>value</code> необходимо указать значение для отображения в счетчике.</p>
 
 {capture 'test_example_content'}
-    {component 'badge' value=199}
-    {component 'badge' value='+30'}
+    {component 'admin:badge' value=199}
+    {component 'admin:badge' value='+30'}
 {/capture}
 
 {capture 'test_example_code'}

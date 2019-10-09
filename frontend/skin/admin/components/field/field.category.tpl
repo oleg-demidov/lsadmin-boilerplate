@@ -31,4 +31,4 @@
 {/foreach}
 
 {* Селект *}
-{component 'field' template='select' name="{$params.form_field}[]" items=$items label={lang 'field.category.label'} selectedValue=$selected isMultiple=$params.multiple}
+{component 'admin:field' template='select' name="{$params.form_field}[]" items=$items label={lang 'field.category.label'} selectedValue=$selected isMultiple=$params.multiple}

@@ -1,9 +1,7 @@
 {
-    "name": "item",
+    "name" : "item",
     "version": "1.0.0",
-    "dependencies": {
-        "css-reset": "*"
-    },
+    
     "templates": {
         "item": "item.tpl",
         "group": "item-group.tpl"

@@ -1,10 +1,7 @@
 {
-    "name": "ls-component",
+    "name" : "ls-component",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*"
-    },
+    
     "scripts": {
         "ls-component": "js/ls-component.js"
     }

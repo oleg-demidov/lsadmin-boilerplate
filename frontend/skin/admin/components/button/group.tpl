@@ -28,7 +28,7 @@
             {foreach $buttons as $button}
                 {if is_array( $button )}
                     {block 'button_group_button'}
-                        {component 'button' params=array_merge( $buttonParams|default:[], $button )}
+                        {component 'admin:button' params=array_merge( $buttonParams|default:[], $button )}
                     {/block}
                 {else}
                     {$button}

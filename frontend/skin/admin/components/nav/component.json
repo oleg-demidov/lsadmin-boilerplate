@@ -1,9 +1,7 @@
 {
-    "name": "nav",
+    "name" : "nav",
     "version": "1.0.0",
-    "dependencies": {
-        "css-reset": "*"
-    },
+    
     "templates": {
         "nav": "nav.tpl",
         "item": "nav-item.tpl"

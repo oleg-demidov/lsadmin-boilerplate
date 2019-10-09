@@ -1,5 +1,5 @@
 {
-    "name": "p-rbac",
+    "name" : "p-rbac",
     "version": "1.0.0",
     "templates": {
         "role-form": "role/form.tpl",

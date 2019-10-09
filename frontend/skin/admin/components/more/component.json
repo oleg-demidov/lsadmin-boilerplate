@@ -1,20 +1,14 @@
 {
-    "name": "more",
+    "name" : "more",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "ls-component": "*",
-        "css-reset": "*",
-        "css-helpers": "*"
-    },
+    
     "templates": {
         "more": "more.tpl"
     },
-    "scripts": {
-        "more": "js/more.js"
-    },
-    "styles": {
+    "assets": { 
+ "js":{ 
+        "more": "js/more.js" }, 
+ "css": { 
         "more": "css/more.css"
-    }
+     } }
 }

@@ -1,22 +1,17 @@
 {
-    "name": "actionbar",
+    "name" : "actionbar",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "css-reset": "*",
-        "button": "*"
-    },
+    
     "templates": {
         "item.select": "actionbar-item.select.tpl",
         "group": "actionbar-group.tpl",
         "button": "actionbar-button.tpl",
         "actionbar": "actionbar.tpl"
     },
-    "scripts": {
-        "item-select": "js/actionbar-item-select.js"
-    },
-    "styles": {
+    "assets": { 
+ "js":{ 
+        "item-select": "js/actionbar-item-select.js" }, 
+ "css": { 
         "actionbar": "css/actionbar.css"
-    }
+     } }
 }

@@ -8,7 +8,7 @@
 <p>Для базового использования нужно указать общее кол-во страниц <code>total</code>, текущую страницу <code>current</code> и ссылку <code>url</code> с параметром <code>__page__</code>, который при выводе страниц будет заменен на номер страницы.</p>
 
 {capture 'test_example_content'}
-    {component 'pagination' total=10 current=3 url='http://example.com/content/page__page__'}
+    {component 'admin:pagination' total=10 current=3 url='http://example.com/content/page__page__'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -29,7 +29,7 @@
 <p>Для того что бы показать мини-навигацию "пред. / след. страница", необходимо установить параметр <code>showPager</code> в <code>true</code></p>
 
 {capture 'test_example_content'}
-    {component 'pagination' total=10 current=1 showPager=true url='http://example.com/content/page__page__'}
+    {component 'admin:pagination' total=10 current=1 showPager=true url='http://example.com/content/page__page__'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -51,7 +51,7 @@
 <p>Кол-во показываемых страниц справа и слева от активной страницы указываются в параметре <code>padding</code> (по-умолчанию 2).</p>
 
 {capture 'test_example_content'}
-    {component 'pagination' total=10 current=5 padding=1 url='http://example.com/content/page__page__'}
+    {component 'admin:pagination' total=10 current=5 padding=1 url='http://example.com/content/page__page__'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -91,7 +91,7 @@
 {test_heading text='Модификаторы'}
 
 {capture 'test_example_content'}
-    {component 'pagination' total=10 current=3 url='http://example.com/content/page__page__' mods='small'}
+    {component 'admin:pagination' total=10 current=3 url='http://example.com/content/page__page__' mods='small'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -114,4 +114,4 @@
     });
 </script>
 
-{component 'pagination' classes='js-mypagination-ajax' total=10 current=3 url='http://example.com/content/page__page__' mods='small'}
+{component 'admin:pagination' classes='js-mypagination-ajax' total=10 current=3 url='http://example.com/content/page__page__' mods='small'}

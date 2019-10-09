@@ -31,7 +31,7 @@
         </table>
     {/capture}
 
-    {component 'text' text=$smarty.capture.text}
+    {component 'admin:text' text=$smarty.capture.text}
 {/capture}
 
 {capture 'test_example_code'}

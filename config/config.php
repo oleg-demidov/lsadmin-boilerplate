@@ -59,23 +59,30 @@ $config['$root$']['router']['page']['admin'] = 'PluginAdmin_ActionAdmin';
 $config['$root$']['db']['table']['users_ban'] = '___db.table.prefix___admin_users_ban';
 
 /**
- * Список компонентов для админки
+ * Список базовых компонентов для админки
  */
-$config['components'] = array(
+$config['$root$']['components'] = array(
     // Базовые компоненты
-    'admin:css-reset', 'admin:css-helpers', 'admin:typography', 'admin:forms', 'admin:grid', 'admin:ls-vendor', 'admin:ls-core', 'admin:ls-component', 'admin:lightbox',
-    'admin:slider', 'admin:details', 'admin:alert', 'admin:dropdown', 'admin:button', 'admin:block', 'admin:confirm',
-    'admin:nav', 'admin:tooltip', 'admin:tabs', 'admin:modal', 'admin:table', 'admin:text', 'admin:uploader', 'admin:email', 'admin:field', 'admin:pagination',
-    'admin:editor', 'admin:more', 'admin:crop', 'admin:performance', 'admin:toolbar', 'admin:actionbar', 'admin:badge',
-    'admin:autocomplete', 'admin:icon', 'admin:item', 'admin:highlighter', 'admin:jumbotron', 'admin:notification', 'admin:blankslate', 'admin:info-list',
-
-    // Компоненты админки
-    'admin:p-plugin', 'admin:p-skin', 'admin:p-settings', 'admin:p-actionbar', 'admin:p-cron', 'admin:p-property', 'admin:p-topic', 'admin:p-category', 'admin:p-optimization',
-    'admin:p-form', 'admin:p-rbac', 'admin:p-user', 'admin:p-menu', 'admin:p-dashboard', 'admin:p-graph', 'admin:p-userbar', 'admin:import',
-
-    // Компоненты LS CMS
-    'admin:note', 'admin:icons-contact', 'admin:toolbar-scrollup', 'admin:toolbar-scrollnav',
-    'admin:media', 'admin:property', 'admin:content', 'admin:activity', 'tinymce', 'bs-button'
+//    'ls-vendor', 
+//    'ls-core', 
+//    'ls-component', 
+//    'notification', 
+//    'performance', 
+////    'confirm', 
+//    'lightbox', 
+//    'bootstrap',
+//    'tinymce',
+//    'dropdown', 
+//    'form', 
+//    'pagination', 
+//    'nav', 
+//    'ajax',
+//    'icon', 
+//    'autocomplete',
+//    'popover',
+//    'text', 
+//    'button'
+    
 );
 
 $config['assets'] = $assets;

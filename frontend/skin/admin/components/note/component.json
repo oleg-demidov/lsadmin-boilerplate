@@ -1,0 +1,14 @@
+{
+    "name": "note",
+    "version": "1.0.0",
+    
+    "templates": {
+        "note": "note.tpl"
+    },
+    "assets": { 
+ "js":{ 
+        "note": "js/note.js" }, 
+ "css": { 
+        "note": "css/note.css"
+     } }
+}

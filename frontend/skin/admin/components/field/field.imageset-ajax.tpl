@@ -30,16 +30,16 @@
 
             </ul>
 
-            {component 'button'
+            {component 'admin:button'
                 type    = 'button'
                 text    = {lang 'common.add'}
                 classes = "js-field-imageset-but-show-modal" attributes=[ 'style' => ( $imagePreviewItems ) ? 'display: none' : '' ]}
 
-            {component 'uploader' template='modal'
+            {component 'admin:uploader' template='modal'
                 classes = "js-field-imageset-modal"
                 title   = $modalTitle}
 
-            {component 'field.hidden' name=$nameTarget value=$value attributes = ['data-imageset-input' => null]}
+            {component 'admin:field.hidden' name=$nameTarget value=$value attributes = ['data-imageset-input' => null]}
 
             <input type="text" class="field-count-image" style="display: none;" value="0" {field_input_attr_common useValue=false} />
 

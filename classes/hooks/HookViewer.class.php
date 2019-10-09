@@ -32,7 +32,7 @@ class PluginAdmin_HookViewer extends Hook
         /*
          * должен быть запущен после загрузки настроек и предпросмотра шаблона (третья очередь)
          */
-        $this->AddHook('engine_init_complete', 'EngineInitComplete');
+//        $this->AddHook('engine_init_complete', 'EngineInitComplete');
     }
 
 

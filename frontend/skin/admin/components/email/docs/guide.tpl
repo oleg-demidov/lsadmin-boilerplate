@@ -8,7 +8,7 @@
 <p>...</p>
 
 {capture 'test_example_content'}
-    {component 'email' title='Lorem ipsum dolor sit amet.' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque incidunt ex voluptatum harum voluptate rerum maxime beatae. Impedit, cumque eos.'}
+    {component 'admin:email' title='Lorem ipsum dolor sit amet.' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque incidunt ex voluptatum harum voluptate rerum maxime beatae. Impedit, cumque eos.'}
 {/capture}
 
 {capture 'test_example_code'}

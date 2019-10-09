@@ -13,7 +13,7 @@
 <p>В виджете необходимо указать селектор элемента <code>target</code> относительно которого будет позиционироваться тулбар и опциональные параметры <code>offsetX</code> <code>offsetY</code> в которых указывается смещение тулбара по осям в пикселях.</p>
 
 {capture 'test_example_content'}
-    {component 'toolbar' classes='my-toolbar' items=[
+    {component 'admin:toolbar' classes='my-toolbar' items=[
         [ 'buttons' => [[ 'icon' => 'cog' ]] ],
         [
             'buttons' => [

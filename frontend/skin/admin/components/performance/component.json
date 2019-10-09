@@ -1,9 +1,7 @@
 {
-    "name": "performance",
+    "name" : "performance",
     "version": "1.0.0",
-    "dependencies": {
-        "alert": "*"
-    },
+    
     "templates": {
         "performance": "performance.tpl"
     },

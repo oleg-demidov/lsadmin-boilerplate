@@ -1,5 +1,5 @@
 {
-    "name": "css-helpers",
+    "name" : "css-helpers",
     "version": "1.0.0",
     "styles": {
         "css-helpers": "css/css-helpers.css"

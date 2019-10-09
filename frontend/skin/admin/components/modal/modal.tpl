@@ -44,7 +44,7 @@
     {/block}
 
     {* Tabs *}
-    {( is_array( $tabs ) ) ? {component 'tabs' classes="{$component}-tabs js-{$component}-tabs" params=$tabs} : $tabs}
+    {( is_array( $tabs ) ) ? {component 'admin:tabs' classes="{$component}-tabs js-{$component}-tabs" params=$tabs} : $tabs}
 
     {$body}
 
@@ -54,10 +54,10 @@
             <div class="{$component}-footer">
                 {block 'modal_footer_inner'}
                     {* Кнопка закрытия окна *}
-                    {component 'button' type='button' text={lang 'common.cancel'} attributes=[ 'data-type' => 'modal-close' ]}
+                    {component 'admin:button' type='button' text={lang 'common.cancel'} attributes=[ 'data-type' => 'modal-close' ]}
 
                     {* Кнопка отвечающее за основное действие *}
-                    {( is_array( $primaryButton ) ) ? {component 'button' mods='primary' params=$primaryButton} : $primaryButton}
+                    {( is_array( $primaryButton ) ) ? {component 'admin:button' mods='primary' params=$primaryButton} : $primaryButton}
                 {/block}
             </div>
         {/if}

@@ -1,20 +1,15 @@
 {
-    "name": "toolbar",
+    "name" : "toolbar",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "ls-component": "*",
-        "css-reset": "*"
-    },
+    
     "templates": {
         "item": "toolbar-item.tpl",
         "toolbar": "toolbar.tpl"
     },
-    "scripts": {
-        "toolbar": "js/toolbar.js"
-    },
-    "styles": {
+    "assets": { 
+ "js":{ 
+        "toolbar": "js/toolbar.js" }, 
+ "css": { 
         "toolbar": "css/toolbar.css"
-    }
+     } }
 }

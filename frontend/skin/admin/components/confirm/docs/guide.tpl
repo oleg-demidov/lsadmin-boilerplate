@@ -22,8 +22,8 @@
         });
     </script>
 
-    {component 'button' text="Delete (url)" url="/" classes="js-my-confirm"}
-    {component 'button' text="Delete (callback)" classes="js-my-confirm-callback"}
+    {component 'admin:button' text="Delete (url)" url="/" classes="js-my-confirm"}
+    {component 'admin:button' text="Delete (callback)" classes="js-my-confirm-callback"}
 {/capture}
 
 {capture 'test_example_code'}

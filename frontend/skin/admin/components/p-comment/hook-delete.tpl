@@ -5,7 +5,7 @@
 {component_define_params params=[ 'comment' ]}
 
 {if $oUserCurrent and $oUserCurrent->isAdministrator()}
-    {component 'comment.actions-item'
+    {component 'admin:comment.actions-item'
         link = [
             url => "{router page='admin/comments/delete'}?id={$comment->getId()}",
             attributes => [ target => '_blank' ]

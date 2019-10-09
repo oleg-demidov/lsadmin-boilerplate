@@ -4,8 +4,8 @@
 {test_heading text='Кнопки'}
 
 {capture 'test_example_content'}
-    {component 'button' text='Кнопка'}
-    {component 'button' text='Ссылка' url='http://example.com'}
+    {component 'admin:button' text='Кнопка'}
+    {component 'admin:button' text='Ссылка' url='http://example.com'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -24,12 +24,12 @@
 <p>Модификаторы <code>primary</code> <code>success</code> <code>info</code> <code>warning</code> <code>danger</code></p>
 
 {capture 'test_example_content'}
-    {component 'button' text='Default'}
-    {component 'button' text='Primary' mods='primary'}
-    {component 'button' text='Success' mods='success'}
-    {component 'button' text='Info' mods='info'}
-    {component 'button' text='Warning' mods='warning'}
-    {component 'button' text='Danger' mods='danger'}
+    {component 'admin:button' text='Default'}
+    {component 'admin:button' text='Primary' mods='primary'}
+    {component 'admin:button' text='Success' mods='success'}
+    {component 'admin:button' text='Info' mods='info'}
+    {component 'admin:button' text='Warning' mods='warning'}
+    {component 'admin:button' text='Danger' mods='danger'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -52,10 +52,10 @@
 <p>Модификаторы <code>large</code> <code>small</code> <code>xsmall</code></p>
 
 {capture 'test_example_content'}
-    <p>{component 'button' text='Large button' mods='large'}</p>
-    <p>{component 'button' text='Default button' mods='default'}</p>
-    <p>{component 'button' text='Small button' mods='small'}</p>
-    <p>{component 'button' text='Xsmall button' mods='xsmall'}</p>
+    <p>{component 'admin:button' text='Large button' mods='large'}</p>
+    <p>{component 'admin:button' text='Default button' mods='default'}</p>
+    <p>{component 'admin:button' text='Small button' mods='small'}</p>
+    <p>{component 'admin:button' text='Xsmall button' mods='xsmall'}</p>
 {/capture}
 
 {capture 'test_example_code'}
@@ -73,7 +73,7 @@
 
 {capture 'test_example_content'}
 <div style="background: #fafafa; padding: 20px; width: 200px;">
-    {component 'button' text='Block button' mods='large block'}
+    {component 'admin:button' text='Block button' mods='large block'}
 </div>
 {/capture}
 
@@ -92,8 +92,8 @@
 <p>Параметр <code>icon</code></p>
 
 {capture 'test_example_content'}
-    <p>{component 'button' text='Save' icon='check'}</p>
-    {component 'button' mods='icon' icon='check'}
+    <p>{component 'admin:button' text='Save' icon='check'}</p>
+    {component 'admin:button' mods='icon' icon='check'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -130,7 +130,7 @@
 <p>Шаблон <code>group</code> позволяет группировать кнопки. По умолчанию кнопки группируются горизонтально, для вертикальной группировки необходимо добавить мод-ор <code>vertical</code>.</p>
 
 {capture 'test_example_content'}
-    {component 'button' template='group' buttons=[
+    {component 'admin:button' template='group' buttons=[
         [ 'text' => 'Left' ],
         [ 'text' => 'Middle' ],
         [ 'text' => 'Middle' ],
@@ -138,7 +138,7 @@
         [ 'text' => 'Right' ]
     ]}
     <br>
-    {component 'button' template='group' buttons=[
+    {component 'admin:button' template='group' buttons=[
         [ 'text' => 'Left', 'mods' => 'large' ],
         [ 'text' => 'Middle', 'mods' => 'large' ],
         [ 'text' => 'Middle', 'mods' => 'large' ],
@@ -146,11 +146,11 @@
         [ 'text' => 'Right', 'mods' => 'large' ]
     ]}
     <br>
-    {component 'button' template='group' buttons=[
+    {component 'admin:button' template='group' buttons=[
         [ 'text' => 'Middle' ]
     ]}
     <br>
-    {component 'button' template='group' mods='vertical' buttons=[
+    {component 'admin:button' template='group' mods='vertical' buttons=[
         [ 'text' => 'Left' ],
         [ 'text' => 'Middle' ],
         [ 'text' => 'Middle' ],
@@ -225,7 +225,7 @@
 <p>Для отображения нескольких групп кнопок используется шаблон <code>toolbar</code> и параметр <code>groups</code>, который принимает массив с группами кнопок.</p>
 
 {capture 'test_example_content'}
-    {component 'button' template='toolbar' groups=[
+    {component 'admin:button' template='toolbar' groups=[
         [
             'buttons' => [
                 [ 'icon' => 'check' ],
@@ -249,7 +249,7 @@
         ]
     ]}
     <br>
-    {component 'button' template='toolbar' mods='vertical' groups=[
+    {component 'admin:button' template='toolbar' mods='vertical' groups=[
         [
             'buttons' => [
                 [ 'icon' => 'check' ],
@@ -310,12 +310,12 @@
 {test_heading text='Счетчик'}
 
 {capture 'test_example_content'}
-    {component 'button' text='Комментарии' icon='comments' badge=[ value => 10 ]} <br><br>
-    {component 'button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='primary'} <br><br>
-    {component 'button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='success'} <br><br>
-    {component 'button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='info'} <br><br>
-    {component 'button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='warning'} <br><br>
-    {component 'button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='danger'}
+    {component 'admin:button' text='Комментарии' icon='comments' badge=[ value => 10 ]} <br><br>
+    {component 'admin:button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='primary'} <br><br>
+    {component 'admin:button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='success'} <br><br>
+    {component 'admin:button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='info'} <br><br>
+    {component 'admin:button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='warning'} <br><br>
+    {component 'admin:button' text='Комментарии' icon='comments' badge=[ value => 10 ] mods='danger'}
 {/capture}
 
 {capture 'test_example_code'}

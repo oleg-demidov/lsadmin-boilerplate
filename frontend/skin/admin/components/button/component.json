@@ -1,23 +1,18 @@
 {
-    "name": "button",
+    "name" : "button",
     "version": "1.0.0",
-    "dependencies": {
-        "css-reset": "*",
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "icon": "*"
-    },
+    
     "templates": {
         "button": "button.tpl",
         "toolbar": "toolbar.tpl",
         "group": "group.tpl"
     },
-    "scripts": {
-        "button-polyfills": "js/button-polyfills.js"
-    },
-    "styles": {
+    "assets": { 
+ "js":{ 
+        "button-polyfills": "js/button-polyfills.js" }, 
+ "css": { 
         "button": "css/button.css",
         "toolbar": "css/toolbar.css",
         "group": "css/group.css"
-    }
+     } }
 }

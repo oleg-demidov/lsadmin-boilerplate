@@ -69,7 +69,7 @@
                             <a href="{router page="{$user->getLogin()}"}" class="link-border"
                                title="{$aLang.plugin.admin.users.table_header.login}"><span>{$user->getLogin()}</span></a>
                             {if $user->getConfirmed()}
-                                {component "icon" icon="check" attributes=[ title => 'Подтверждено']}
+                                {component "adminicon" icon="check" attributes=[ title => 'Подтверждено']}
                             {/if}
 
                             {if $user->isAdministrator()}

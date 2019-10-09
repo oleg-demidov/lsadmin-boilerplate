@@ -21,13 +21,13 @@
         })
     </script>
 
-    {component 'button' text='Показать' classes='js-show-notification'}
-    {component 'button' text='Только заголовок' classes='js-show-notification-title'}
-    {component 'button' text='Только сообщение' classes='js-show-notification-message'}
+    {component 'admin:button' text='Показать' classes='js-show-notification'}
+    {component 'admin:button' text='Только заголовок' classes='js-show-notification-title'}
+    {component 'admin:button' text='Только сообщение' classes='js-show-notification-message'}
     <br>
     <br>
-    {component 'button' text='Ошибка' classes='js-show-notification-error'}
-    {component 'button' text='Информация' classes='js-show-notification-info'}
+    {component 'admin:button' text='Ошибка' classes='js-show-notification-error'}
+    {component 'admin:button' text='Информация' classes='js-show-notification-info'}
 {/capture}
 
 {capture 'test_example_code'}

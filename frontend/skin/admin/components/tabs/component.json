@@ -1,22 +1,17 @@
 {
-    "name": "tabs",
+    "name" : "tabs",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "ls-component": "*",
-        "css-reset": "*"
-    },
+    
     "templates": {
         "tabs": "tabs.tpl",
         "tab": "tab.tpl",
         "list": "list.tpl"
     },
-    "scripts": {
+    "assets": { 
+ "js":{ 
         "tab": "js/tab.js",
-        "tabs": "js/tabs.js"
-    },
-    "styles": {
+        "tabs": "js/tabs.js" }, 
+ "css": { 
         "tabs": "css/tabs.css"
-    }
+     } }
 }

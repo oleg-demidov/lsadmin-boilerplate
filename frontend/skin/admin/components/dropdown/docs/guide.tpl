@@ -127,7 +127,7 @@
     {component 'dropdown' classes='js-mydropdown' text='Dropdown' icon='star' menu=$menu}
     <br>
     <br>
-    {component 'button' template='group' buttons=[
+    {component 'admin:button' template='group' buttons=[
         [ 'text' => 'Hello' ],
         {component 'dropdown' classes='js-mydropdown' text='Dropdown' menu=$menu},
         {component 'dropdown' classes='js-mydropdown' text='Dropdown' icon='ok' menu=$menu},
@@ -138,7 +138,7 @@
     ]}
     <br>
     <br>
-    {component 'button' template='group' buttons=[
+    {component 'admin:button' template='group' buttons=[
         {component 'dropdown' classes='js-mydropdown' text='Dropdown' menu=$menu}
     ]}
 {/capture}

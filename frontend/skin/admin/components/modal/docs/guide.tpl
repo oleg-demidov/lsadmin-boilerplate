@@ -59,7 +59,7 @@ jQuery(function ($) {
         });
     </script>
 
-    {component 'button' type='button' text='Показать окно' classes='js-modal-toggle-default' attributes=[ 'data-lsmodaltoggle-modal' => 'my_modal' ]}
+    {component 'admin:button' type='button' text='Показать окно' classes='js-modal-toggle-default' attributes=[ 'data-lsmodaltoggle-modal' => 'my_modal' ]}
 
     {component 'modal'
         classes='js-mymodal'
@@ -102,10 +102,10 @@ jQuery(function ($) {
 <p>TODO</p>
 
 {capture 'test_example_content'}
-    {component 'button' type='button' text='Показать окно' classes='js-modal-toggle-default' attributes=[ 'data-lsmodaltoggle-modal' => 'my-modal' ]}
+    {component 'admin:button' type='button' text='Показать окно' classes='js-modal-toggle-default' attributes=[ 'data-lsmodaltoggle-modal' => 'my-modal' ]}
 
     {capture 'modal_content'}
-        {component 'button' type='button' text='Показать окно' classes='js-modal-toggle-default' attributes=[ 'data-lsmodaltoggle-modal' => 'my-modal-nested' ]}
+        {component 'admin:button' type='button' text='Показать окно' classes='js-modal-toggle-default' attributes=[ 'data-lsmodaltoggle-modal' => 'my-modal-nested' ]}
     {/capture}
 
     {component 'modal'

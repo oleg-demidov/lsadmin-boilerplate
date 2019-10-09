@@ -30,7 +30,7 @@
         {foreach $groups as $group}
             {if is_array( $group )}
                 {block 'button_toolbar_group'}
-                    {component 'button' template='group' role='group' mods=$groupMod params=$group}
+                    {component 'admin:button' template='group' role='group' mods=$groupMod params=$group}
                 {/block}
             {else}
                 {$group}

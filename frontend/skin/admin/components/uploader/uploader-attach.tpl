@@ -30,7 +30,7 @@
 
     {* Контент *}
     <div class="{$component}-body fieldset-body">
-        {component 'button' type='button' text={lang $i18n.upload} classes='js-uploader-attach-button'}
+        {component 'admin:button' type='button' text={lang $i18n.upload} classes='js-uploader-attach-button'}
 
         <span class="{$component}-file-counter js-uploader-attach-file-counter">
             {lang name=$i18n.count empty=$i18n.empty count=$count plural=true}
@@ -38,7 +38,7 @@
     </div>
 
     {* Модальное окно с загрузчиком *}
-    {component 'uploader' template='modal'
+    {component 'admin:uploader' template='modal'
         choosable = false
         uploader  = [ useFilter => false ]
         title     = {lang $i18n.title}

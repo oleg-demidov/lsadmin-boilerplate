@@ -1,5 +1,5 @@
 {
-    "name": "tags",
+    "name" : "tags",
     "version": "1.0.0",
     "templates": {
         "cloud": "tag-cloud.tpl",

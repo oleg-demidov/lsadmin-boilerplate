@@ -1,14 +1,12 @@
 {
-    "name": "lightbox",
+    "name" : "lightbox",
     "version": "1.0.0",
-    "dependencies": {
-        "css-reset": "*"
-    },
-    "scripts": {
+    
+    "assets": { 
+ "js":{ 
         "vendor-colorbox": "vendor/colorbox/jquery.colorbox.js",
-        "lightbox": "js/lightbox.js"
-    },
-    "styles": {
+        "lightbox": "js/lightbox.js" }, 
+ "css": { 
         "vendor-colorbox": "vendor/colorbox/colorbox.css"
-    }
+     } }
 }

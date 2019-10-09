@@ -21,7 +21,7 @@
         {if $items}
             {component 'avatar' template='loop' items=$items}
         {else}
-            {component 'blankslate' text={lang 'common.empty'} params=$blankslateParams}
+            {component 'admin:blankslate' text={lang 'common.empty'} params=$blankslateParams}
         {/if}
     {/block}
 </div>

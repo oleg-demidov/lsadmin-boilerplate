@@ -17,7 +17,7 @@
 
         {block 'tags_list'}
             {foreach $tags as $tag}
-                {component 'tags' template='item' text=$tag->getText() url=$tag->getUrl() isFirst=$tag@first}
+                {component 'admin:tags' template='item' text=$tag->getText() url=$tag->getUrl() isFirst=$tag@first}
             {/foreach}
         {/block}
     </ul>

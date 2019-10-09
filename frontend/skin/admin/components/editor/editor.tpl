@@ -23,7 +23,7 @@
  * Textarea
  *}
 {function editor_textarea}
-    {component 'field.textarea'
+    {component 'admin:field.textarea'
         id = $_uid
         inputAttributes = array_merge( $inputAttributes|default:[], [ 'data-editor-type' => $type, 'data-editor-set' => $set, 'data-editor-media' => $_mediaUid ] )
         rows = $rows|default:10
@@ -57,7 +57,7 @@
         {editor_textarea}
 
         {if $help|default:true}
-            {component 'editor' template='markup-help' targetId=$_uid}
+            {component 'admin:editor' template='markup-help' targetId=$_uid}
         {/if}
     {/hookb}
 {/if}

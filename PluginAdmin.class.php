@@ -89,11 +89,8 @@ class PluginAdmin extends Plugin
         /**
          * выполнить загрузку конфигов системы и плагинов
          */
-        $this->PluginAdmin_Settings_AutoLoadConfigs();
-        /*
-         * Ставим свой шаблон для админки
-         */
-        Config::Set('view.skin', 'admin');
+//        $this->PluginAdmin_Settings_AutoLoadConfigs();
+        
         /**
          * Фикс загрузки параметров кеша
          */

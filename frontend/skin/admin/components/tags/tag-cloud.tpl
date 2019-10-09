@@ -17,5 +17,5 @@
         {/foreach}
     </ul>
 {else}
-    {component 'blankslate' text=$aLang.common.empty}
+    {component 'admin:blankslate' text=$aLang.common.empty}
 {/if}

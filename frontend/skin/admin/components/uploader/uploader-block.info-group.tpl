@@ -26,7 +26,7 @@
         {* Текстовые св-ва *}
         <div class="{$component_info}-fields">
             {foreach $propertiesFields as $property}
-                {component 'field' template='text'
+                {component 'admin:field' template='text'
                     name            = $property['name']
                     inputClasses    = "js-uploader-info-property"
                     inputAttributes = [ 'data-name' => $property['name'] ]

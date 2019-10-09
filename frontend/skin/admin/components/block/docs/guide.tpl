@@ -4,7 +4,7 @@
 {test_heading text='Использование'}
 
 {capture 'test_example_content'}
-    {component 'block'
+    {component 'admin:block'
         title='Block'
         content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
 {/capture}
@@ -24,11 +24,11 @@
 <p>Модификаторы <code>primary</code> <code>success</code> <code>info</code> <code>warning</code> <code>danger</code></p>
 
 {capture 'test_example_content'}
-    {component 'block' mods='primary' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
-    {component 'block' mods='success' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
-    {component 'block' mods='info' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
-    {component 'block' mods='warning' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
-    {component 'block' mods='danger' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
+    {component 'admin:block' mods='primary' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
+    {component 'admin:block' mods='success' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
+    {component 'admin:block' mods='info' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
+    {component 'admin:block' mods='warning' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
+    {component 'admin:block' mods='danger' title='Block' content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -46,7 +46,7 @@
 <p>TODO</p>
 
 {capture 'test_example_content'}
-    {component 'block'
+    {component 'admin:block'
         mods='primary'
         title='Item group'
         list=[ 'items' => [
@@ -55,7 +55,7 @@
             [ 'desc' => 'Lorem ipsum dolor sit amet, consectetur adipisicing.' ]
         ]]}
 
-    {component 'block'
+    {component 'admin:block'
         mods='primary'
         title='Item group + content'
         content='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, id.'
@@ -65,7 +65,7 @@
             [ 'desc' => 'Lorem ipsum dolor sit amet, consectetur adipisicing.' ]
         ]]}
 
-    {component 'block'
+    {component 'admin:block'
         mods='primary'
         title='Item group + footer'
         footer='Footer'
@@ -97,7 +97,7 @@ TODO
         });
     </script>
 
-    {component 'block'
+    {component 'admin:block'
         classes='js-myblock'
         title='Tabs'
         tabs=[

@@ -27,7 +27,7 @@
 {test_heading text='Text'}
 
 {capture 'test_example_content'}
-    {component 'field'
+    {component 'admin:field'
         template = 'text'
         label = 'Label'
         note  = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}
@@ -48,7 +48,7 @@
 {test_heading text='E-mail'}
 
 {capture 'test_example_content'}
-    {component 'field'
+    {component 'admin:field'
         template = 'email'
         note  = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}
 {/capture}
@@ -73,12 +73,12 @@
         });
     </script>
 
-    {component 'field'
+    {component 'admin:field'
         template = 'date'
         label  = 'Date'
         inputClasses = 'js-my-datepicker'}
 
-    {component 'field'
+    {component 'admin:field'
         template = 'time'
         label  = 'Time'
         inputClasses = 'js-my-timepicker'}
@@ -140,7 +140,7 @@
 {test_heading text='Textarea'}
 
 {capture 'test_example_content'}
-    {component 'field'
+    {component 'admin:field'
         template = 'textarea'
         rows = 5
         label = 'Label'
@@ -163,7 +163,7 @@
 {test_heading text='Select'}
 
 {capture 'test_example_content'}
-    {component 'field'
+    {component 'admin:field'
         template = 'select'
         label = 'Label'
         note  = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
@@ -210,7 +210,7 @@
         });
     </script>
 
-    {component 'field'
+    {component 'admin:field'
         template = 'autocomplete'
         label = 'Ajax'
         isMultiple = true
@@ -218,7 +218,7 @@
         inputClasses='js-field-autocomplete-ajax'
         note = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}
 
-    {component 'field'
+    {component 'admin:field'
         template = 'autocomplete'
         label = 'Label'
         isMultiple = true
@@ -264,12 +264,12 @@
 {test_heading text='Radio / Checkbox'}
 
 {capture 'test_example_content'}
-    {component 'field'
+    {component 'admin:field'
         template = 'radio'
         label = 'Label'
         note  = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'}
 
-    {component 'field'
+    {component 'admin:field'
         template = 'checkbox'
         label = 'Label'
         checked = true
@@ -322,7 +322,7 @@
 <p>Зона загрузки файлов.</p>
 
 {capture 'test_example_content'}
-    {component 'field' template='upload-area'}
+    {component 'admin:field' template='upload-area'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -382,7 +382,7 @@
         login => 'vasya'
     ]}
 
-    {component 'field.text' name='login' label='Login'}
+    {component 'admin:field.text' name='login' label='Login'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -422,7 +422,7 @@
         my_checkbox => true
     ]}
 
-    {component 'field.checkbox' name='my_checkbox' label='My Checkbox'}
+    {component 'admin:field.checkbox' name='my_checkbox' label='My Checkbox'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -447,9 +447,9 @@
         my_checkbox => [ 'checkbox1', 'checkbox3' ]
     ]}
 
-    {component 'field.checkbox' name='my_checkbox' value='checkbox1' label='My Checkbox 1'}
-    {component 'field.checkbox' name='my_checkbox' value='checkbox2' label='My Checkbox 2'}
-    {component 'field.checkbox' name='my_checkbox' value='checkbox3' label='My Checkbox 3'}
+    {component 'admin:field.checkbox' name='my_checkbox' value='checkbox1' label='My Checkbox 1'}
+    {component 'admin:field.checkbox' name='my_checkbox' value='checkbox2' label='My Checkbox 2'}
+    {component 'admin:field.checkbox' name='my_checkbox' value='checkbox3' label='My Checkbox 3'}
 {/capture}
 
 {capture 'test_example_code'}
@@ -474,9 +474,9 @@
         my_radio => 'radio2'
     ]}
 
-    {component 'field.radio' name='my_radio' value='radio1' label='My Radio 1'}
-    {component 'field.radio' name='my_radio' value='radio2' label='My Radio 2'}
-    {component 'field.radio' name='my_radio' value='radio3' label='My Radio 3'}
+    {component 'admin:field.radio' name='my_radio' value='radio1' label='My Radio 1'}
+    {component 'admin:field.radio' name='my_radio' value='radio2' label='My Radio 2'}
+    {component 'admin:field.radio' name='my_radio' value='radio3' label='My Radio 3'}
 {/capture}
 
 {capture 'test_example_code'}

@@ -1,5 +1,5 @@
 {
-    "name": "p-topic",
+    "name" : "p-topic",
     "version": "1.0.0",
     "templates": {
         "form": "form.tpl",

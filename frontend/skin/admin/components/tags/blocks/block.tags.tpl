@@ -9,5 +9,5 @@
 
     {$mods = "$mods tags"}
     {$title = $title|default:{lang 'tags.block_tags.title'}}
-    {$content  = {component 'tags' template='cloud' tags=$tags}}
+    {$content  = {component 'admin:tags' template='cloud' tags=$tags}}
 {/block}

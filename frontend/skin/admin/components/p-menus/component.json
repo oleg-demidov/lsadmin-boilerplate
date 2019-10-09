@@ -1,5 +1,5 @@
 {
-    "name": "p-menus",
+    "name" : "p-menus",
     "version": "1.0.0",
     "templates": {
         "form": "form.tpl",

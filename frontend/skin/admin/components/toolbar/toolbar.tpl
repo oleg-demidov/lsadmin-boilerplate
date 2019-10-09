@@ -8,7 +8,7 @@
 <div class="{$component} {cmods name=$component mods=$mods} {$classes}" {cattr list=$attributes}>
     {if is_array($items)}
         {foreach $items as $item}
-            {component 'toolbar.item' params=$item}
+            {component 'admin:toolbar.item' params=$item}
         {/foreach}
     {else}
         {$items}

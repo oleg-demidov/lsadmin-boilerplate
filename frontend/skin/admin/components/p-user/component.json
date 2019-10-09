@@ -1,5 +1,5 @@
 {
-    "name": "p-user",
+    "name" : "p-user",
     "version": "1.0.0",
     "templates": {
         "contact-form": "contact/form.tpl",
@@ -33,18 +33,18 @@
 
         "preview-alert": "preview-alert.tpl"
     },
-    "scripts": {
+    "assets": { 
+ "js":{ 
         "ban": "js/ban.js",
         "search": "js/search.js",
         "chart-location": "js/chart-location.js",
-        "report": "js/report.js"
-    },
-    "styles": {
+        "report": "js/report.js" }, 
+ "css": { 
         "blocks": "css/blocks.css",
         "ban": "css/ban.css",
         "list": "css/list.css",
         "profile": "css/profile.css",
         "charts": "css/charts.css",
         "flags": "css/flags.css"
-    }
+     } }
 }

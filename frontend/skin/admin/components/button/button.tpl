@@ -50,6 +50,6 @@
     {$text}
 
     {if $badge}
-        {component 'badge' params=$badge}
+        {component 'admin:badge' params=$badge}
     {/if}
 </{$tag}>

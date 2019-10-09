@@ -20,9 +20,9 @@
 <div class="{$component} {cmods name=$component mods=$mods} {$classes}" {cattr list=$attributes}>
     {* Кнопка *}
     {if $isSplit}
-        {component 'button' template='group' buttons=[
+        {component 'admin:button' template='group' buttons=[
             [ 'text' => $text, 'mods' => $mods, 'attributes' => [ 'tabindex' => -1 ] ],
-            {component 'button'
+            {component 'admin:button'
                 type       = 'button'
                 classes    = "{$component}-toggle js-{$component}-toggle"
                 mods       = "{$mods} no-text"
@@ -32,7 +32,7 @@
                 ])}
         ]}
     {else}
-        {component 'button'
+        {component 'admin:button'
             type       = 'button'
             classes    = "{$component}-toggle js-{$component}-toggle"
             mods       = $mods

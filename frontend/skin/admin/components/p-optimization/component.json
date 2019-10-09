@@ -1,5 +1,5 @@
 {
-    "name": "p-optimization",
+    "name" : "p-optimization",
     "version": "1.0.0",
     "templates": {
         "section": "section.tpl"

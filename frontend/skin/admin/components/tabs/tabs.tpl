@@ -24,7 +24,7 @@
 
 <div class="{$component} {cmods name=$component mods=$mods} {$classes}" {cattr list=$attributes}>
     {* Табы *}
-    {component 'tabs.list' activeTab=$activeTab tabs=$tabs}
+    {component 'admin:tabs.list' activeTab=$activeTab tabs=$tabs}
 
     {* Содержимое табов *}
     {if ! $activeTab && $tabs}

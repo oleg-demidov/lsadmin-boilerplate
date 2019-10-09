@@ -4,7 +4,7 @@
 
 {component_define_params params=[ 'mods', 'classes', 'attributes' ]}
 
-{component 'search-form'
+{component 'admin:search-form'
         name         = 'tags'
         mods         = $mods
         placeholder  = {lang 'tags.search.label'}

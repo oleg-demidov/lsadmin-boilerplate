@@ -1,21 +1,16 @@
 {
-    "name": "editor",
+    "name" : "editor",
     "version": "1.0.0",
-    "dependencies": {
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "ls-component": "*",
-        "css-reset": "*"
-    },
+    
     "templates": {
         "markup-help": "editor.markup.help.tpl"
     },
-    "scripts": {
+    "assets": { 
+ "js":{ 
         "editor": "js/editor.js",
         "markup": "js/editor.markup.js",
-        "visual": "js/editor.visual.js"
-    },
-    "styles": {
+        "visual": "js/editor.visual.js" }, 
+ "css": { 
         "editor": "css/editor.css"
-    }
+     } }
 }

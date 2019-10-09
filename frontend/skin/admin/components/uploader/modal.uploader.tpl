@@ -9,7 +9,7 @@
 
     {$mods = "$mods uploader"}
     {$options = array_merge( $options|default:[], [ 'center' => 'false' ] )}
-    {$content = {component 'uploader' classes='js-uploader-modal' params=$uploader}}
+    {$content = {component 'admin:uploader' classes='js-uploader-modal' params=$uploader}}
 
     {if $choosable|default:true}
         {$primaryButton = [

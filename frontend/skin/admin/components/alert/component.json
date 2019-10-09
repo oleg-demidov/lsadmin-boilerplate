@@ -1,13 +1,7 @@
 {
-    "name": "alert",
+    "name" : "alert",
     "version": "1.0.0",
-    "dependencies": {
-        "css-reset": "*",
-        "ls-vendor": "*",
-        "ls-core": "*",
-        "ls-component": "*",
-        "icon": "*"
-    },
+    
     "templates": {
         "alert": "alert.tpl"
     },
@@ -17,7 +11,9 @@
             "merge": true
         }
     },
-    "styles": {
+    "styles":{   
         "alert": "css/alert.css"
-    }
+    },
+    
+    "alert": "css/alert.css"
 }

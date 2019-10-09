@@ -3,14 +3,14 @@
 {test_heading text='Использование'}
 
 {capture 'test_example_content'}
-    {component 'blankslate'
+    {component 'admin:blankslate'
         title = 'Lorem ipsum'
         text  = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit omnis, error incidunt alias a animi'}
 
-    {component 'blankslate'
+    {component 'admin:blankslate'
         title = 'Нет добавленных топиков'}
 
-    {component 'blankslate'
+    {component 'admin:blankslate'
         text = 'Нет добавленных топиков'}
 {/capture}
 
@@ -28,7 +28,7 @@
 <p>Мод-ор <code>no-background</code>.</p>
 
 {capture 'test_example_content'}
-    {component 'blankslate'
+    {component 'admin:blankslate'
         title = 'Lorem ipsum'
         text  = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit omnis, error incidunt alias a animi'
         mods = 'no-background'}

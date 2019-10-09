@@ -22,7 +22,7 @@
         </div>
 
         {* Информация о изображении *}
-        {component 'uploader' template='block.info-group'
+        {component 'admin:uploader' template='block.info-group'
             type             = '1'
             properties       = [[ 'name' => 'dimensions', 'label' => {lang name='uploader.info.types.image.dimensions'} ]]
             propertiesFields = [[ 'name' => 'title', 'label' => {lang name='uploader.info.types.image.title'} ]]}
@@ -32,6 +32,6 @@
     </div>
 {/capture}
 
-{component 'uploader' template='block'
+{component 'admin:uploader' template='block'
     classes="{$component_info} js-uploader-info"
     content=$smarty.capture.block_content}

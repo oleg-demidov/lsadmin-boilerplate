@@ -47,7 +47,7 @@
         <a href="{$url}" class="{$component}-link" {$target}>
             {* Счетчик *}
             {if isset($count) && ( $showZeroCounter || ( ! $showZeroCounter && $count > 0 ) )}
-                {component 'badge' value=$count classes="{$component}-badge"}
+                {component 'admin:badge' value=$count classes="{$component}-badge"}
             {/if}
 
             {* Иконка *}

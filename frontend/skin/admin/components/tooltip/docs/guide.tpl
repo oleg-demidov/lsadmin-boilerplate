@@ -9,7 +9,7 @@
         })
     </script>
 
-    {component 'button' text='Tooltip' classes='js-my-tooltip' attributes=[ title => 'My text' ]}
+    {component 'admin:button' text='Tooltip' classes='js-my-tooltip' attributes=[ title => 'My text' ]}
 {/capture}
 
 {capture 'test_example_code'}

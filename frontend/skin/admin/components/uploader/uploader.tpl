@@ -17,7 +17,7 @@
 
     {block 'uploader_content'}
         {* Drag & drop зона *}
-        {component 'field' template='upload-area'
+        {component 'admin:field' template='upload-area'
             classes      = 'js-uploader-area'
             inputClasses = 'js-uploader-file'
             inputName    = 'filedata'}
@@ -30,14 +30,14 @@
             {* Сайдбар *}
             <div class="{$component}-aside js-uploader-aside is-empty">
                 {* Блок отображаемый когда нет активного файла *}
-                {component 'blankslate'
+                {component 'admin:blankslate'
                     text    = {lang name='uploader.info.empty'}
                     classes = "{$component}-aside-empty js-uploader-aside-empty"}
 
                 {* Блоки *}
                 <div class="{$component}-aside-blocks js-uploader-blocks">
                     {block 'uploader_aside'}
-                        {component 'uploader' template='block.info'}
+                        {component 'admin:uploader' template='block.info'}
                     {/block}
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 {/if}
 
                 {* Сообщение о пустом списке *}
-                {component 'blankslate'
+                {component 'admin:blankslate'
                     visible=false
                     text={lang 'uploader.attach.empty'}
                     mods='no-background'
@@ -77,7 +77,7 @@
                 {* Список файлов *}
                 <ul class="{$component}-file-list js-uploader-list"></ul>
 
-                {component 'pagination' template='ajax'
+                {component 'admin:pagination' template='ajax'
                     mods='small'
                     attributes = [ style => 'display: none' ]
                     classes    = 'js-uploader-list-pagination'}
