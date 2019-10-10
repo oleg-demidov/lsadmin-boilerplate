@@ -1,8 +1,0 @@
-{
-    "name" : "ls-component",
-    "version": "1.0.0",
-    
-    "scripts": {
-        "ls-component": "js/ls-component.js"
-    }
-}

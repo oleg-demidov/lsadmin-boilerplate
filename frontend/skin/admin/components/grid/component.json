@@ -1,8 +1,0 @@
-{
-    "name" : "grid",
-    "version": "1.0.0",
-    
-    "styles": {
-        "grid": "css/grid.css"
-    }
-}

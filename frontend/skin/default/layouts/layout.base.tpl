@@ -1,228 +1,170 @@
-{**
-* Основной лэйаут, который наследуют все остальные лэйауты
-*
-* @param boolean $layoutShowSidebar        Показывать сайдбар или нет, сайдбар не будет выводится если он не содержит блоков
-* @param string  $layoutNavContent         Название навигации
-* @param string  $layoutNavContentPath     Кастомный путь до навигации контента
-* @param string  $layoutShowSystemMessages Показывать системные уведомления или нет
-*}
+<!doctype html>
 
-{extends 'component@layout.layout'}
+{block 'layout_options'}{/block}
 
+<!--[if lt IE 7]>
+<html class="no-js ie6 oldie" lang="ru"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js ie7 oldie" lang="ru"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js ie8 oldie" lang="ru"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="ru"> <!--<![endif]-->
 
+<head>
+    {* {hook run='html_head_begin'} *}
+    {block 'layout_head_begin'}{/block}
 
-{block 'layout_options' append}
-    {$layoutShowSidebar = $layoutShowSidebar|default:true}
-    {$layoutShowSystemMessages = $layoutShowSystemMessages|default:true}
-    {$themeColor = {Config::Get('view.bs_theme.color')}}
-    {$themeBg = {Config::Get('view.bs_theme.bg')}}
-    {$breakpoint = Config::Get('view.grid.breakpoint')}
-    {$collapse = Config::Get('view.grid.collapse')}
-{/block}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+    <meta name="description" content="{block 'layout_description'}{$sHtmlDescription}{/block}">
+    <meta name="keywords" content="{block 'layout_keywords'}{$sHtmlKeywords}{/block}">
 
-{block 'layout_head' append}
-    {* Получаем блоки для вывода в сайдбаре *}
-    {if $layoutShowSidebar}
-        {show_blocks group='left' assign=layoutSidebarBlocks}
+    <title>{block 'layout_title'}{$sHtmlTitle}{/block}</title>
 
-        {$layoutSidebarBlocks = trim( $layoutSidebarBlocks )}
-        {$layoutShowSidebar = !!$layoutSidebarBlocks}
+    {**
+     * Стили
+     * CSS файлы подключаются в конфиге шаблона (ваш_шаблон/settings/config.php)
+     *}
+    {$aHtmlHeadFiles.css}
+
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href="{$LS->Asset_GetWebPath('favicon')}" rel="shortcut icon" />
+    <link rel="search" type="application/opensearchdescription+xml" href="{router page="search/opensearch"}" title="{Config::Get('view.name')}"/>
+
+    {**
+     * RSS
+     *}
+    {if $aHtmlRssAlternate}
+        <link rel="alternate" type="application/rss+xml" href="{$aHtmlRssAlternate.url}" title="{$aHtmlRssAlternate.title}">
     {/if}
 
-{/block}
+    {if $sHtmlCanonical}
+        <link rel="canonical" href="{$sHtmlCanonical}"/>
+    {/if}
+
+
+    <script>
+        var PATH_ROOT = '{Router::GetPath('/')}',
+                PATH_SKIN = '{Config::Get("path.skin.web")}',
+                PATH_FRAMEWORK_FRONTEND = '{Config::Get("path.framework.frontend.web")}',
+                PATH_FRAMEWORK_LIBS_VENDOR = '{Config::Get("path.framework.libs_vendor.web")}',
+                /**
+                 * Для совместимости с прошлыми версиями. БУДУТ УДАЛЕНЫ
+                 */
+                DIR_WEB_ROOT = '{Config::Get("path.root.web")}',
+                DIR_STATIC_SKIN = '{Config::Get("path.skin.web")}',
+                DIR_STATIC_FRAMEWORK = '{Config::Get("path.framework.frontend.web")}',
+                DIR_ENGINE_LIBS = '{Config::Get("path.framework.web")}/libs',
+
+                LIVESTREET_SECURITY_KEY = '{$LIVESTREET_SECURITY_KEY}',
+                SESSION_ID = '{$_sPhpSessionId}',
+                SESSION_NAME = '{$_sPhpSessionName}',
+                LANGUAGE = '{Config::Get('lang.current')}',
+                WYSIWYG = {if Config::Get('view.wysiwyg')}true{else}false{/if};
+
+        var aRouter = [];
+        {foreach $aRouter as $sPage => $sPath}
+        aRouter['{$sPage}'] = '{$sPath}';
+        {/foreach}
+    </script>
+
+    {**
+     * JavaScript файлы
+     * JS файлы подключаются в конфиге шаблона (ваш_шаблон/settings/config.php)
+     *}
+    {$aHtmlHeadFiles.js}
+
+    <script>
+        ls.lang.load({json var = $LS->Lang_GetLangJs()});
+        ls.lang.load({lang_load name="blog"});
+        ls.registry.set({json var = $LS->Viewer_GetVarsJs()});
+    </script>
+
+
+    {block 'layout_head_end'}{/block}
+    {* {hook run='html_head_end'} *}
+
+</head>
+
+
+<body class="{$sBodyClasses} {block 'layout_body_classes'}{/block} ls-admin">
+{* {hook run='body_begin'} *}
 
 {block 'layout_body'}
 
-    {hook run='layout_body_begin'}
-
+<div id="container" class="{* {hook run='container_class'} *} {if $bNoSidebar}no-sidebar{/if}">
     {**
-    * Основная навигация
-    *}
-    {block 'nav_main'}
-        
-        {capture name="brand"}
-            <img src="{$LS->Asset_GetWebPath('logo')}">
-        {/capture}
+     * Шапка сайта
+     *}
+    {component 'admin:p-userbar'}
 
-      
-    {/block}
-    
-    {block name="after_nav_main"}
-        {*<div class="row mt-1 ">
-            <div class="col-xl-1 "></div>
-            <div class="col-xl-7 col-12 col-lg-8 ">
-                <div class="w-100 ml-3">
-                    Хлебные крошки
-                </div>
-            </div>
-            <div class="col-xl-3 d-flex justify-content-md-between col-12 col-lg-4">
-                <div class="w-100 d-flex justify-content-md-between ">
-                    {component 'search' template='navbar'}
-                </div>
-            </div>
-            <div class="col-xl-1"></div>
-        </div>*}
-    {/block}
-    
-        <div class="row pt-4 no-gutters {hook run='layout_container_class' action=$sAction}">
-            <div class="col-xl-1 "></div>
-            
-            {**
-            * Сайдбар
-            * Показываем сайдбар
-            *}
-            {if $layoutShowSidebar}
-                <div class="col-12 col-{$breakpoint}-3 col-xl-2 layout-sidebar pr-{$breakpoint}-0">
-                    <div class="mx-2">
-                        {$layoutSidebarBlocks}
-                    </div>
-                </div>
-            {/if}
-            
-            <div class="{if $layoutShowSidebar}col-12 col-{$breakpoint}-9 col-xl-8 mt-2 px-2 mt-{$breakpoint}-0
-                 {else}col-12 col-xl-10{/if} ">
-                <div class="px-2">
-                    {hook run='layout_content_header_begin' action=$sAction}
+    {* Вспомогательный контейнер-обертка *}
+    <div id="wrapper" class="{* {hook run='wrapper_class'} *} ls-clearfix">
+        {* Контент *}
+        <div id="content" role="main">
+            {* Временный хак для совместимости со старым кодом *}
+            {capture actionbar}
+                {block 'layout_content_actionbar'}{/block}
+            {/capture}
 
-                    {block 'layout_page_title' hide}
-                        <h2 class="page-header">
-                            {$smarty.block.child}
-                        </h2>
-                    {/block}
+            {* Экшнбар *}
+            {component 'admin:p-actionbar' backUrl=$layoutBackUrl backText=$layoutBackText content=$smarty.capture.actionbar}
 
-                    {block 'layout_content_header'}
-                        {* Навигация *}
-                        {if $layoutNav}
-                            {$_layoutNavContent = ""}
+            {block 'layout_content_before'}{/block}
 
-                            {if is_array($layoutNav)}
-                                {foreach $layoutNav as $layoutNavItem}
-                                    {if is_array($layoutNavItem)}
-                                        {component 'nav' 
-                                            itemsClasses="m-1" 
-                                            bmods='pills' 
-                                            params=$layoutNavItem 
-                                            assign=_layoutNavItemContent}
-                                        {$_layoutNavContent = "$_layoutNavContent $_layoutNavItemContent"}
-                                    {else}
-                                        {$_layoutNavContent = "$_layoutNavContent $layoutNavItem"}
-                                    {/if}
-                                {/foreach}
-                            {else}
-                                {$_layoutNavContent = $layoutNav}
-                            {/if}
-
-                            {* Проверяем наличие вывода на случай если меню с одним пунктом автоматом скрывается *}
-                            {if $_layoutNavContent|strip:''}
-                                <div class="ls-nav-group">
-                                    {$_layoutNavContent}
-                                </div>
-                            {/if}
-                        {/if}
-                        
-
-                        {* Системные сообщения *}
-                        {if $layoutShowSystemMessages}
-                            {if $aMsgError}
-                                {foreach $aMsgError as $sMsgError}
-                                    {component 'alert' text=$sMsgError.msg title=$sMsgError.title bmods='danger' dismissible=true}
-                                {/foreach}
-                            {/if}
-
-                            {if $aMsgNotice}
-                                {foreach $aMsgNotice as $sMsgNotice}
-                                    {component 'alert' text=$sMsgNotice.msg title=$sMsgNotice.title bmods='primary' dismissible=true}
-                                {/foreach}
-                            {/if}
-                        {/if}
-                    {/block}
-
-                    {hook run='layout_content_begin' action=$sAction}
-
-                    {block 'layout_content'}{/block}
-
-                    {hook run='layout_content_end' action=$sAction}
-                </div>
-            </div>
-            
-
-            <div class="col-xl-1"></div>
-        </div>
-                
-        {block 'layout_content_after'}{/block}
-        
-        {* Подвал *}
-        <footer class="w-100 footer">
-            {hook run='layout_footer_begin'}
-                {block 'layout_footer'}
-                    <div class="d-flex justify-content-center px-3">
-                        {capture name="img_logo"}
-                            <div class="mt-1" >
-                                <img class="mt-2" width="24" height="27" src="{$LS->Asset_GetWebPath('logo')}">
-                            </div>
-                        {/capture}
-                        
-                        {$items = [
-                            $smarty.capture.img_logo,
-                            [
-                                text    => $aLang.footer.nav.about.text,
-                                classes => "p-3"
-                            ],
-                            [
-                                text    => $aLang.footer.nav.contacts.text,
-                                classes => "p-3"
-                            ]
-                        ]}
-
-                        {if !$oUserCurrent}
-                            {$items[] = [   
-                                icon        => [ icon => "sign-in-alt", display => "s", classes => "d-md-none d-inline"],
-                                text        => "<span class='d-none d-md-block'>{$aLang.auth.login.title}</span>",        
-                                attributes  => [ "data-toggle"=>"modal-tab", "data-target"=>"#nav-tab-authlogin"], 
-                                url         => "{router page='auth/login'}",
-                                classes => "p-3",
-                                liAttributes => [ "data-toggle"=>"modal", "data-target"=>"#modalAuth"]
-                            ]}
-                            {$items[] =[ 
-                                icon        => [ icon => "user-plus", display => "s", classes => "d-md-none d-inline"],
-                                text        => "<span class='d-none d-md-block'>{$aLang.auth.registration.title}</span>", 
-                                attributes  => [ "data-toggle"=>"modal-tab", "data-target"=>"#nav-tab-authregister"], 
-                                url         => "{router page='auth/register'}" ,
-                                classes     => "p-3",
-                                liAttributes => [ "data-toggle"=>"modal", "data-target"=>"#modalAuth"]
-                            ]}
-                        {/if}
-
-
-                        {component "nav" 
-                            classes = "footer-nav"
-                            items = $items}
-                    </div>
+            <div class="content-padding">
+                {block 'layout_page_title' hide}
+                    <h2 class="page-header">{$smarty.block.child}</h2>
                 {/block}
-            {hook run='copyright'}
-            {hook run='layout_footer_end'}
-        </footer>
-        
-    {block "layout_modals"}
-        {* Подключение модальных окон *}
-        {if $oUserCurrent}
-            
-        {else}
-            {component 'auth' template='modal'}
-        {/if}
-        {if $oUserAdmin}
-            {component 'modal' 
-                header  = {lang 'user.userbar.nav.feedback'} 
-                id      = "modalFeedback"
-                closed  = true
-                content = {lang 'feedback.text' email=$oUserAdmin->getMail()}}
-        {/if}
 
-        
-    {/block}
-    
-    {hook run='layout_body_end'}    
+                {* Системные сообщения *}
+                {if ! $bNoSystemMessages}
+                    {if $aMsgError}
+                        {component 'admin:alert' text=$aMsgError mods='error' dismissible=true}
+                    {/if}
 
+                    {if $aMsgNotice}
+                        {component 'admin:alert' text=$aMsgNotice dismissible=true}
+                    {/if}
+                {/if}
+
+                {block 'layout_content'}{/block}
+            </div>
+        </div>
+
+        {* Сайдбар *}
+        {component 'admin:p-menu' menu=$oMenuMain}
+    </div> {* /wrapper *}
+
+    {* Подвал *}
+    <footer id="footer">
+        {block 'layout_footer_begin'}{/block}
+
+        <ul>
+            <li>&copy; 2008-{date("Y")} LiveStreet CMS</li>
+        </ul>
+
+        <ul>
+            <li><a href="https://catalog.livestreetcms.com/" class="link-border" target="_blank"><span>Каталог расширений</a></span></li>{* todo: add lang *}
+            <li><a href="http://livestreet.ru/" class="link-border" target="_blank"><span>Сообщество</a></span></li>
+            <li><a href="http://job.livestreetcms.com/" class="link-border" target="_blank"><span>Работа</a></span></li>
+        </ul>
+
+        <ul class="footer-right">
+            <li><a href="{Router::GetPath('/')}" class="link-border"><span>Перейти на сайт</a></span></li>
+        </ul>
+
+        {block 'layout_footer_end'}{/block}
+    </footer>
+</div> {* /container *}
 {/block}
 
+{* для вывода общей статистики *}
+{hook run='admin_body_end'}
+
+{$sLayoutAfter}
+
+</body>
+</html>

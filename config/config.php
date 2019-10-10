@@ -18,8 +18,6 @@
  * @author Serge Pustovit (PSNet) <light.feel@gmail.com>
  *
  */
-$assets = require __DIR__ . '/assets.php';
-
 $bans = require __DIR__ . '/bans.php';
 
 $utils = require __DIR__ . '/encoding_checking_dirs.php';
@@ -84,8 +82,6 @@ $config['$root$']['components'] = array(
 //    'button'
     
 );
-
-$config['assets'] = $assets;
 
 $config['bans'] = $bans;
 

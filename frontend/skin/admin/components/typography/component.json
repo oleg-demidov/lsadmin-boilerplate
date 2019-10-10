@@ -1,8 +1,0 @@
-{
-    "name" : "typography",
-    "version": "1.0.0",
-    
-    "styles": {
-        "typography": "css/typography.css"
-    }
-}
