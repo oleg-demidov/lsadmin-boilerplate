@@ -2,7 +2,7 @@
     "name": "alert",
     "version": "1.0.0",
     "dependencies": {
-        "css-reset": "*",
+        "admin:css-reset": "*",
         "ls-vendor": "*",
         "ls-core": "*",
         "ls-component": "*",

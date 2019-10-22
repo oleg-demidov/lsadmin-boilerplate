@@ -2,8 +2,8 @@
     "name": "text",
     "version": "1.0.0",
     "dependencies": {
-        "css-reset": "*",
-        "typography": "*"
+        "admin:css-reset": "*",
+        "admin:typography": "*"
     },
     "templates": {
         "text": "text.tpl"

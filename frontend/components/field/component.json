@@ -5,8 +5,8 @@
         "ls-vendor": "*",
         "ls-core": "*",
         "ls-component": "*",
-        "css-reset": "*",
-        "forms": "*"
+        "admin:css-reset": "*",
+        "admin:forms": "*"
     },
     "templates": {
         "field": "field.tpl",

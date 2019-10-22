@@ -4,7 +4,7 @@
     "dependencies": {
         "ls-vendor": "*",
         "ls-core": "*",
-        "css-reset": "*"
+        "admin:css-reset": "*"
     },
     "styles": {
         "notification": "css/notification.css"

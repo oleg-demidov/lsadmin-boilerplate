@@ -2,7 +2,7 @@
     "name": "nav",
     "version": "1.0.0",
     "dependencies": {
-        "css-reset": "*"
+        "admin:css-reset": "*"
     },
     "templates": {
         "nav": "nav.tpl",

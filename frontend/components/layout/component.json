@@ -2,7 +2,7 @@
     "name": "layout",
     "version": "1.0.0",
     "dependencies": {
-        "css-reset": "*",
+        "admin:css-reset": "*",
         "grid": "*",
         "ls-core": "*"
     },

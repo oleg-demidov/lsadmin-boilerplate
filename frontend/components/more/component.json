@@ -5,8 +5,8 @@
         "ls-vendor": "*",
         "ls-core": "*",
         "ls-component": "*",
-        "css-reset": "*",
-        "css-helpers": "*"
+        "admin:css-reset": "*",
+        "admin:css-helpers": "*"
     },
     "templates": {
         "more": "more.tpl"

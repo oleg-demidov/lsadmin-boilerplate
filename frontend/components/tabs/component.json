@@ -5,7 +5,7 @@
         "ls-vendor": "*",
         "ls-core": "*",
         "ls-component": "*",
-        "css-reset": "*"
+        "admin:css-reset": "*"
     },
     "templates": {
         "tabs": "tabs.tpl",
