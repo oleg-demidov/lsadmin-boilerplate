@@ -1,6 +1,8 @@
 {
-    "name": "Fend",
-    "description": "Описание проекта Fend.",
+    "name": "livestreet/plugin-admin",
+    "description": "Админка для Livestreet",
+    "type": "livestreet-plugin",
+    "license":"MIT",
     "authors": [
         {
             "name": "oleg",
@@ -8,25 +10,14 @@
         }
     ],
     "require": {
-        "dellirom/exel.tpl": "dev-master"
-        
+        "olegdemidov/exel": "dev-master"
+    },
+    "extra":{
+        "code":"admin"
     },
     "autoload": {
-        
-        "classmap": ["vendor/dellirom/exel.tpl/Classes/PHPExcel/IOFactory.php"]
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "dellirom/exel.tpl",
-                "version": "dev-master",
-                "source": {
-                    "url": "https://github.com/dellirom/exel.tpl",
-                    "type": "git",
-                    "reference": "origin/master"
-                }
-            }
-        }
-    ]
+        "classmap" : [
+            "PluginAdmin.class.php"
+        ]
+    }
 }

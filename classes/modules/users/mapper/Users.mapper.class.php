@@ -269,7 +269,7 @@ class PluginAdmin_ModuleUsers_MapperUsers extends Mapper
      * @return Entity|null
      */
     public function IsUserBanned($oUser, $mIp, $sCurrentDate)
-    {
+    {  
         $sSql = 'SELECT *
 			FROM
 				`' . Config::Get('db.table.users_ban') . '`

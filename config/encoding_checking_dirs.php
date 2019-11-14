@@ -30,7 +30,7 @@ $config = array();
 /*
  * Список масок поиска файлов для проверки
  */
-$config['utils']['encoding_checking_dirs'] = array(
+$config['encoding_checking_dirs'] = array(
     /*
      *
      * --- Проверка файлов фреймворка ---
