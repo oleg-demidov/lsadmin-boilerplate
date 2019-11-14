@@ -99,8 +99,8 @@ class PluginAdmin_ActionAdmin_EventCategory extends Event
 
         if (getRequest('category_submit')) {
             $this->Security_ValidateSendForm();
-            $oCategory->_setDataSafe(getRequest('category'));
-            if ($oCategory->_Validate()) {
+            $oCategory->_setDataSafe(getRequest('category'));            //print_r($oCategory->_getData());
+            if ($oCategory->_Validate()) { //print_r($oCategory->_getData());
                 $oCategory->setTitle(htmlspecialchars($oCategory->getTitle()));
                 if ($oCategory->getDescription()) {
                     $oCategory->setDescription($this->Category_ParserText($oCategory->getDescription(), $oCategory));
