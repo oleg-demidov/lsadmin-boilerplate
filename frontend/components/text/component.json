@@ -1,0 +1,14 @@
+{
+    "name": "text",
+    "version": "1.0.0",
+    "dependencies": {
+        "admin:css-reset": "*",
+        "admin:typography": "*"
+    },
+    "templates": {
+        "text": "text.tpl"
+    },
+    "styles": {
+        "text": "css/text.css"
+    }
+}

@@ -4,10 +4,6 @@
 
 {extends "{$aTemplatePathPlugin.admin}layouts/layout.base.tpl"}
 
-{block 'layout_content_actionbar'}
-	{component 'admin:p-dashboard.actionbar-stats'}
-{/block}
-
 {block 'layout_content'}
 	{**
 	 * График
@@ -38,6 +34,9 @@
 	 * Данные о последнем входе пользователя в админку
 	 *}
 	{if $aLastVisitData and $aLastVisitData.date}
-		{component 'admin:alert' text="{$aLang.plugin.admin.hello.last_visit} {date_format date=$aLastVisitData.date format='j F Y в H:i'}" mods='info'}
+		{component 'alert' 
+                    classes = "mt-2"
+                    text="{$aLang.plugin.admin.hello.last_visit} {date_format date=$aLastVisitData.date format='j F Y в H:i'}" 
+                    bmods='info'}
 	{/if}
 {/block}

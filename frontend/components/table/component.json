@@ -1,8 +1,10 @@
 {
-    "styles": {
-        "table-admin": "css/table-admin.css"
+    "name": "table",
+    "version": "1.0.0",
+    "dependencies": {
+        "admin:css-reset": "*"
     },
-    "templates": {
-        "sorting-cell": "sorting-cell.tpl"
+    "styles": {
+        "table": "css/table.css"
     }
 }

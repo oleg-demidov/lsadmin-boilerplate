@@ -25,16 +25,14 @@
  * @param string $page             Страница
  * @param string $linkClasses      Дополнительные классы для ссылки
  *}
-{function pagination_item page=0 text='' isActive=false classes='' isPager=false}
-    {$element = ($isPager) ? 'div' : 'li'}
-
-    <{$element} class="{$component}-item {if $isActive}active{/if} {$classes}">
+{function pagination_item page=0 text='' isActive=false}
+    <li class="{$component}-item {if $isActive}active{/if}">
         {if $isActive || ! $page}
-            <span class="{$component}-item-inner">{if ! $isPager}{$text|default:$page}{/if}</span>
+            <span class="{$component}-item-inner">{$text|default:$page}</span>
         {else}
-            <a class="{$component}-item-inner {$component}-item-link {$linkClasses}" href="{str_replace('__page__', $page, $url)}">{if ! $isPager}{$text|default:$page}{/if}</a>
+            <a class="{$component}-item-inner {$component}-item-link {$linkClasses}" href="{str_replace('__page__', $page, $url)}">{$text|default:$page}</a>
         {/if}
-    </{$element}>
+    </li>
 {/function}
 
 
@@ -46,6 +44,7 @@
 {block 'pagination_options'}{/block}
 
 {if ( $showSingle && $total && $current ) || ( ! $showSingle && $total > 1 && $current )}
+    {$current = (int)$current}
     {* Вычисляем следующую страницу *}
     {$next = ( $current == $total ) ? 0 : $current + 1}
 
@@ -68,7 +67,15 @@
         {if $next}data-pagination-next="{str_replace('__page__', $next, $url)}"{/if}
         {if $prev}data-pagination-prev="{str_replace('__page__', $prev, $url)}"{/if}>
 
-        {pagination_item page=$prev classes="{$component}-prev" linkClasses="js-{$component}-prev" isPager=true}
+        {if $showPager}
+            <ul class="{$component}-list {$component}-pager">
+                {* Предыдущая страница *}
+                {pagination_item page=$prev text="&larr; {$aLang.pagination.previous}" linkClasses="{$component}-prev js-{$component}-prev"}
+
+                {* Следущая страница *}
+                {pagination_item page=$next text="{$aLang.pagination.next} &rarr;" linkClasses="{$component}-next js-{$component}-next"}
+            </ul>
+        {/if}
 
         <ul class="{$component}-list">
             {if $start > 2}
@@ -85,7 +92,5 @@
                 {pagination_item page=$total}
             {/if}
         </ul>
-
-        {pagination_item page=$next classes="{$component}-next" linkClasses=" js-{$component}-next" isPager=true}
     </nav>
 {/if}

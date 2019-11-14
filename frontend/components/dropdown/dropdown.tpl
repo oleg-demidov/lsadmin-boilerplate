@@ -45,5 +45,5 @@
     {/if}
 
     {* Меню *}
-    {component 'admin:dropdown' template='menu' activeItem=$activeItem items=$menu}
+    {component 'dropdown' template='menu' activeItem=$activeItem items=$menu}
 </div>

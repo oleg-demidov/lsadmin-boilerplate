@@ -1,5 +1,22 @@
 {
+    "name": "block",
+    "version": "1.0.0",
+    "dependencies": {
+        "ls-vendor": "*",
+        "ls-core": "*",
+        "ls-component": "*",
+        "admin:css-reset": "*",
+        "alert": "*",
+        "tabs": "*",
+        "admin:item": "*"
+    },
+    "templates": {
+        "block": "block.tpl"
+    },
+    "scripts": {
+        "block": "js/block.js"
+    },
     "styles": {
-        "block-admin": "css/block-admin.css"
+        "block": "css/block.css"
     }
 }

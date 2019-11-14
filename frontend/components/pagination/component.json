@@ -1,11 +1,21 @@
 {
-    "templates": {
-        "on-page": "elements-on-page.tpl"
+    "name": "pagination",
+    "version": "1.0.0",
+    "dependencies": {
+        "ls-vendor": "*",
+        "ls-core": "*",
+        "ls-component": "*",
+        "admin:css-reset": "*"
     },
-    "styles": {
-        "pagination": "css/pagination-admin.css"
+    "templates": {
+        "pagination": "pagination.tpl",
+        "ajax": "pagination-ajax.tpl"
     },
     "scripts": {
-        "on-page": "js/on-page.js"
+        "pagination": "js/pagination.js",
+        "ajax": "js/pagination-ajax.js"
+    },
+    "styles": {
+        "pagination": "css/pagination.css"
     }
 }
