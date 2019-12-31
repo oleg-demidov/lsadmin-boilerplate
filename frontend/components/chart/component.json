@@ -1,0 +1,17 @@
+{
+    "name": "chart",
+    "version": "1.0.0",
+    "dependencies": {
+    },
+    "templates": {
+        "chart": "chart.tpl"
+    },
+    "assets": {
+        "js": {
+            "highcharts": "js/highcharts.js"
+        },
+        "css": {
+            "graph": "css/graph.css"
+        }
+    }
+}

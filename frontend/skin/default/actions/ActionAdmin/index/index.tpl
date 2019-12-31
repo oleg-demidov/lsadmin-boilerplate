@@ -8,13 +8,13 @@
 	{**
 	 * График
 	 *}
-	{component 'admin:p-graph'
-		title=$aLang.plugin.admin.index.title
-		data=$aDataStats
-		name=$aLang.plugin.admin.graph.graph_type.$sCurrentGraphType
-		url={router page='admin'}
-		showFilterType=true
-		showFilterPeriod=true}
+	{component 'admin:chart'
+		title   = $aLang.plugin.admin.index.title
+		data    = $aDataStats
+		name    = $aLang.plugin.admin.graph.graph_type.$sCurrentGraphType
+		url     = {router page='admin'}
+		showFilterType  = true
+		showFilterPeriod= true}
 
 	{**
 	 * Уведомления
